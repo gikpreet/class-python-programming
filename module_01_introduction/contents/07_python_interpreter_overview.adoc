@@ -1,0 +1,16 @@
+= Python 인터프리터
+
+* Python은 인터프리터를 사용하는 언어로 알려져있으나, Python 인터프리터 내부에는 컴파일러와 Python 가상 머신(PVM)이 있음
+* 소스코드(.py)에 대해 컴파일러가 바이트코드(.pyc)로 변환하고, 이를 한줄씩 PVM이 해석하는 과정을 거침
+* Python 코드 실행 시 __pycache__ 라는 디렉토리가 생기고 그 안에 .pyc 파일들이 생성되어 실행됨
+
+image:../images/image01.png[]
+
+---
+
+https://linejin.tistory.com/2
+
+https://caiocozza-art.medium.com/a-quick-overview-of-the-python-virtual-machine-pt-1-315e74c036f4
+
+https://letsmakemyselfprogrammer.tistory.com/88
+

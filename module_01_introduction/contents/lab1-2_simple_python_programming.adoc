@@ -1,0 +1,133 @@
+= Lab 1-2: Python 인터프리터 사용
+
+이 연습에서는 Python의 사용법을 익히기 위한 간단한 예제를 수행합니다. 아래 절차에 따릅니다.
+
+== 연습 1: Python에서 수 사용
+
+1. 명령 프롬프트 또는 터미널을 실행합니다.
+* Windows 11: Anaconda Prompt
+* macOS / Linux: 터미널
+2. 아래 명령을 실행하여 Python 인터프리터를 실행합니다.
++
+----
+python
+----
+3. Python 프롬프트에서 아래 명령을 입력하고 Enter 키를 누릅니다.
++
+[source, python]
+----
+>>> 1 + 2
+3
+----
++
+인터프리터는 간단한 계산기 역할을 합니다. expression을 입력하면 값이 기록됩니다. expression 구문은 간단합니다. 연산자 +, 및 - 를 사용하여 산술을 수행할 수 있습니다. 그룹화에는 괄호 ( ) 를 사용할 수 있습니다.
++
+[source, python]
+----
+>>> 2 + 2
+4
+>>> 50 - 5*6
+20
+>>> (50 - 5*6) / 4
+5.0
+>>> 8 / 5  # 나눗셈은 부동 소수점을 return 합니다
+1.6
+----
++
+4. 아래 expression을 입력하여 출력되는 타입을 확인합니다.
++
+[source, python]
+----
+>>> 17 / 3  # 일반적인 나누기는 float을 return 합니다
+5.666666666666667
+>>> 17 // 3  # floor 분할은 소수 부분을 버립니다
+5
+>>> 17 % 3  # % 연산자는 나누기의 나머지를 반환합니다.
+2
+>>> 5 * 3 + 2  # 내림 몫 * 나누는 수 + 나머지
+17
+----
++
+5. Python에서는 거듭 제곱을 계산할 때 ** 연산자를 사용합니다.
++
+[source, python]
+----
+>>> 5 ** 2  # 5의 제곱
+25
+>>> 2 ** 7  # 2의 7 제곱
+128
+----
++
+6. 변수에 값을 대입할 때는 Assignment 연산자(=)를 사용합니다. 
++
+[source, python]
+----
+>>> width = 20
+>>> height = 5 * 9
+>>> width * height
+900
+----
++
+7. 변수가 정의(define) 되어 있지 않을 때, 즉 값을 변수에 할당(assign)하지 않았을 때 사용하려고 시도하면 에러를 일으킵니다.
++
+[source, python]
+----
+>>> n  # 정의되지 않은 변수에 액세스를 시도
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'n' is not defined
+----
++
+8. 실수를 지원합니다. 서로 다른 타입의 피 연산자끼리의 연산은 정수가 실수로 변환된 후 실행됩니다.
++
+[source, python]
+----
+>>> 4 * 3.75 - 1
+14.0
+----
++
+9. 대화형 모드에서는, 마지막에 인쇄된 표현식은 변수 _ 에 대입됩니다. 이것은 파이썬을 계산기로 사용할 때, 계산을 이어 가기가 좀 더 쉬워짐을 의미합니다
++
+[source, python]
+----
+>>> tax = 12.5 / 100
+>>> price = 100.50
+>>> price * tax
+12.5625
+>>> price + _
+113.0625
+>>> round(_, 2)
+113.06
+----
++
+_ 변수는 읽기 전용으로 취급되어야 하며, 직접 값을 대입해서는 안됩니다. 대입 할 수는 있으나, 이 경우 같은 이름의 지역 변수를 새로 만드는 것과 같이 동작합니다.
+
+== 연습 2: 문자열
+
+1. Python은 숫자뿐만 아니라 텍스트(소위 "str" 이라고 불리는 type 으로 표시됨)를 조작할 수 있습니다 . 여기에는 문자 `"!"`, 단어 `"rabbit"`, 이름 `"Paris"` , 문장 `"Got your back"` 등이 포함됩니다 . `작은따옴표( ' ' )` 또는 `큰따옴표( " " )` 로 묶을 수 있으며 결과는 동일합니다.
++
+[source, python]
+----
+>>> 'spam eggs'  # 작은 따움표(single quotes)
+'spam eggs'
+>>> "Paris rabbit got your back :)! Yay!"  # double quotes
+'Paris rabbit got your back :)! Yay!'
+>>> '1975'  # digits and numerals enclosed in quotes are also strings
+'1975'
+----
++
+2. 인용문을 인용하려면 앞에 \ 를 붙입니다. 또는 또는 다른 유형의 따옴표를 사용할 수 있습니다.
++
+[source, python]
+----
+>>> 'doesn\'t'  # use \' to escape the single quote...
+"doesn't"
+>>> "doesn't"  # ...or use double quotes instead
+"doesn't"
+>>> '"Yes," they said.'
+'"Yes," they said.'
+>>> "\"Yes,\" they said."
+'"Yes," they said.'
+>>> '"Isn\'t," they said.'
+'"Isn\'t," they said.'
+----

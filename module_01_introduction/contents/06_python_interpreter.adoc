@@ -1,0 +1,7 @@
+= Python 인터프리터
+
+Python은 인터프리터(Interpreter)언어로, 작성한 소스 코드를 개발자가 명시적으로 컴파일 할 필요없이 바로 실행되는 방식으로 동작합니다. 이 단원에서는 Python 인터프리터에 대해 알아봅니다.
+
+== Table of Contents
+
+1. Python 인터프리터 개요
