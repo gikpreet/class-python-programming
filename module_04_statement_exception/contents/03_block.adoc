@@ -1,0 +1,9 @@
+= Statement Block
+
+* 특정한 동작을 위한 코드의 묶음
+* 들여쓰기(intentation)을 기준으로 블록을 구성
+* 들여쓰기는 칸 수가 같아야 하며, 탭(tab)과 공백(whitespace)가 혼재될 수 없음
+
+---
+
+https://blog.naver.com/jkg57/222108054918
