@@ -1,0 +1,7 @@
+= 증감 연산자
+
+* Python은 varable++, variable-- 등의 증감 연산을 지원하지 않음
+
+---
+
+https://ondemand.tistory.com/255

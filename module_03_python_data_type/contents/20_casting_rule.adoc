@@ -1,0 +1,3 @@
+= 타입 변환 규칙
+
+https://velog.io/@yjoct13/Python-Data-Types
