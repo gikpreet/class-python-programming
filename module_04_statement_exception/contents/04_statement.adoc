@@ -1,2 +1,8 @@
 == Statement의 종류
 
+* Python은 흐름 제어를 위한 문을 제공함
+** 선택문: if 문
+** 반복문: while문과 for 문
+** 분기문: break문과 continue 문
+
+---

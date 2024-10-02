@@ -1,0 +1,19 @@
+= Cascading if statement(Cascading if)
+
+* 단일 if 문에서 원하는 만큼의 분기를 가지는 계단식(Cascading) if 문을 처리
+* elif 사용
++
+[source, python]
+----
+x = int(input("Please enter an integer: "))
+Please enter an integer: 42
+if x < 0:
+    x = 0
+    print('Negative changed to zero')
+elif x == 0:
+    print('Zero')
+elif x == 1:
+    print('Single')
+else:
+    print('More')
+----

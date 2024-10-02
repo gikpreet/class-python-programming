@@ -1,8 +1,8 @@
-= Python Programming Language
+= Python 프로그래밍 언어
 
 * 배우기 쉬우면서도 강력한 프로그래밍 언어
 * 효율적인 자료구조와 객체지향 프로그래밍에 대한 간단하면서 효율적인 접근법 제공
-* 우아한 문법과 Dynamic Typing 지원
+* 우아한 문법과 Dynamic Typing(동적 타이핑) 지원
 * 인터프리터 언어
 * 대부분의 플랫폼과 문제 영역에서 스크립트 작성과 빠른 응용 프로그램 개발 환경 제공
 * 고수준 데이터 타입들로 인해 복잡한 expression을 한 statement로 표현

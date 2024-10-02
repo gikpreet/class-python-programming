@@ -4,4 +4,5 @@ Python은 단순히 프로그래밍 언어의 이름으로 사용되는 경우�
 
 == Table of Contents
 
-* Python 소개
+1. Python 소개
+2. Python 프로그래밍 언어

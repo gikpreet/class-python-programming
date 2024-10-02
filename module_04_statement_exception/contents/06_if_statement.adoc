@@ -1,0 +1,9 @@
+= if Statement (if 문)
+
+* 조건문의 결과에 따라 블록의 실행 여부를 결정
++
+[source, python]
+if _boolean expression_:
+    첫 번째 문
+else:
+    두 번째 문
