@@ -1,1 +1,96 @@
 = Python 스크립트 실행
+
+* Python 코드는 확장자가 .py 인 파일로 정의할 수 있음
+* 작성된 스크립트는 두 가지 방법으로 실행될 수 있음
+** 모듈로 실행
+** 스크립트 자체로 실행
+* Python은 Application entry point가 없음
+* 해당 파일의 스크립트만을 실행하기 위해 `\\__main__` 일 경우 실행
++
+[source, python]
+----
+if __name__ = "__main__":
+    print('Hello, World!')
+----
+
+---
+
+작성된 Python 코드는 확장자가 .py인 파일로 저장하여 실행할 수 있습니다. 예를 들면, Hello, World! 문자열을 출력하는 코드를 HelloWorld.py 라는 이름을 가지는 파일로 저장하고, python 인터프리터가 파일 내의 코드를 순차적으로 실행하도록 할 수 있습니다.
+
+[source, python]
+----
+# HelloWorld.py
+print('Hello, World!')
+----
+
+위와 같이 작성된 프로그램(HelloWorld.py)은 아래와 같이 실행할 수 있습니다.
+
+----
+$ python HelloWorld.py
+Hello, World!
+----
+
+== \\__main__ 모듈
+
+대부분의 프로그래밍 언어는 프로그램을 시작할 수 있는 위치(Application entry point)인 `main` 함수를 가지고 있습니다. 이런 유형의 프로그래밍 언어로 작성된 프로그램은 main 함수가 return 하거나 함수에 정의된 모든 코드가 실행되면 프로그램이 종료됩니다.
+
+Python에는 main와 같은 Application Entry Point가 존재하지 않습니다. Python은 작성된 코드를 읽어 인터프리터가 한 줄씩 실행하는 방식으로 실행되므로, main 함수와 같은 Application Entry Point가 필요하지 않습니다.
+
+이 경우, 특정 Python 스크립트가 다른 Python 모듈을 import 할 때 발생할 수 있습니다. 
+
+문자열을 출력하는 코드를 Greetings.py 파일을 아래와 같이 작성하고,
+
+[source, python]
+----
+# Greetings.py
+print('Greetings!')
+----
+
+위에서 작성한 HelloWorld.py 에서 작성한 Greetings 모듈을 아래와 같이 로드 할 경우, 
+
+[source, python]
+----
+# HelloWorld.py
+import Greetings
+
+print('Hello, World!')
+----
+
+아래 명령으로 HelloWorld.py를 실행하면 아래와 같이 Greetings.py의 코드와 HelloWorld.py의 코드가 모두 실행됩니다.
+
+----
+$ python HelloWorld.py
+Greetings!
+Hello, World!
+----
+
+Python 인터프리터는 import 한 파일의 모든 스크립트를 로드하므로, 로드하는 과정에서 실행될 수 있는 스크립트는 모드 실행됩니다. import 하는 과정에서 모듈의 명령이 임의로 작동되는 것은 오류의 원인이 될 수 있습니다.
+
+이런 의도하지 않은 코드의 실행을 막기 위해 `\\__main__` 변수를 사용할 수 있습니다. `\\__main__` 변수를 사용하면 의도하지 않은 코드의 임의적인 실행을 막을 수 있습니다. 아래와 같은 statement를 사용할 수 있습니다.
+
+[source, python]
+----
+if __name__ == '__main__'
+----
+
+위 코드에서 `\\__name__` 은 자기 자신(파일)을 의미하며, `\\__main__` 응용 프로그램이 시작되는 모듈을 의미합니다. 따라서 위 코드는 '현재 파일에서 프로그램이 시작된다면' 의 의미를 가지게 됩니다.
+
+HelloWorld.py 파일에서 프로그램이 시작될 경우,
+
+* HelloWorld.py의 `\\__name__` 은 `\\__main__` 이 됩니다.
+* Greetings.py의 `\\__name__` 은 `Greetings` 가 됩니다.
+
+따라서, Greetings.py 파일에서 응용 프로그램이 시작될 때 Greetings! 문자열을 출력하고, 다른 파일에서 응용 프로그램이 시작될 때는 문자열을 출력하지 않도록 하려면 Greetings.py 파일을 아래와 같이 수정합니다.
+
+[source, python]
+----
+if __name__ == '__main__':
+    print('Greetings!')
+----
+
+Greetings.py 파일이 위와 같이 수정되었으면, Greetings 모듈을 import 하는 HelloWorld.py를 실행할 경우 Greetings! 문자열은 출력되지 않습니다.
+
+----
+$ python HelloWorld.py
+Hello, World!
+----
