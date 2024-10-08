@@ -1,0 +1,213 @@
+= 표준 출력
+
+* 대부분의 컴퓨터에서 표준 출력 장치는 연결된 모니터를 의미
+* print 함수 사용
+** Number 또는 Boolean 인 경우 print(_variable_)
+** 문자열인 경우 큰 따옴표(' ') 또는 작은 따옴표(" ")를 사용
+
+---
+
+표준 출력은 원하는 데이터를 연결된 컴퓨터의 표준 출력 장치(대부분의 컴퓨터에서 모니터)에 출력하는 것을 의미합니다. 파이썬에서는 표준 라이브러리에서 제공되는 print() 함수를 사용하여 출력합니다.
+
+Python 도움말(help 함수)에서 설명하는 print 함수는 아래와 같습니다.
+
+----
+print(*args, sep=' ', end='\n', file=None, flush=False)
+    Prints the values to a stream, or to sys.stdout by default.
+
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
+----
+
+== + 와 ,(쉼표) 사용
+
+print() 함수에 `+` 또는 `,` 를 사용하여 출력할 내용을 조절할 수 있습니다. 문자와 숫자를 같이 출력하려면 `,` 만을 사용할 수 있습니다.
+
+문자열을 접합할 때 `+` 를 사용하면 두 문자열을 붙여서 출력하고, `,` 를 사용하면 한 칸 띄어서 출력합니다.
+
+[source, python]
+----
+print("a" + "b")
+print("a", "b")
+print("a" + "b", 7)
+print("a" + "b" + 7)    # 오류
+----
+
+== sep, end 사용
+
+print 함수의 파라미터로 sep를 사용하면 문자열 사이에 다양한 구분자(delimiter)를 사용할 수 있습니다. 
+
+[source, python]
+----
+print("celine", "james", sep=", ")
+print("celine", "james", sep="|")
+print("celine", "james", sep="\n")
+----
+
+출력문의 끝 처리를 위해 end 파라미터를 사용할 수 있습니다. end 옵션을 사용하면 출 바꿈 없이 문자열을 계속 이어서 출력합니다. 
+
+[source, python]
+----
+print("celine", "james", end="")
+print("celine", "jessy", sep=" loves ", end="?")
+----
+
+== list, rjust, zfill 사용
+
+출력시 포맷을 깔끔하게 하기 위해 ljust, rjust, zfill 함수를 사용할 수 있습니다.
+
+ljust 함수와 rjust 함수는 선언된 변수 또는 값이 문자열인 경우 값이 표시될 칸 수를 지정하고 각각 오른쪽 정렬, 왼쪽 정렬된 결과를 보여줍니다.
+
+[source, python]
+----
+names = ["celine", "robert", "james"]
+department = ["CE", "CS", "CO"]
+
+for name, depart in zip(names, department):
+    print(name.rjust(8), depart.rjust(4))
+----
+실행 결과:
+----
+  celine   CE
+  robert   CS
+   james   CO
+----
+
+두 함수를 자릿수를 확보하고 남는 자리에 원하는 값을 지정할 수도 있습니다.
+
+[source, python]
+----
+names = ["celine", "robert", "james"]
+department = ["CE", "CS", "CO"]
+
+for name, depart in zip(names, department):
+    print(name.rjust(8), depart.rjust(3, ":"))
+----
+실행 결과:
+----
+  celine :CE
+  robert :CS
+   james :CO
+----
+
+자릿수를 확보하고 남는 자리에 0을 채워야 할 필요가 있을 경우 zfill 함수를 사용할 수 있습니다.
+
+[source, python]
+----
+for i in range(1, 4):
+    print(str(i).zfill(5))
+----
+실행 결과:
+----
+00001
+00002
+00003
+----
+
+== Number 형식 지정
+
+숫자 형식의 값은 다양한 형식으로 출력될 필요가 있습니다. 숫자의 형식은 formant 함수를 `{_format_}.format(_variable_)` 형식으로 호출하여 지정할 수 있습니다.
+
+[cols="1, 3", option="header", width="500"]
+|===
+|Format|설명
+|{0:+}|숫자에 부호 삽입
+|{0,}| 3자리 마다 쉼표 삽입
+|{0:>10}| 10자리 확보 후 왼쪽 정렬
+|{0:<10}| 10자리 확보 후 오른쪽 정렬
+|{0:_<10}| 10자리 확보 후 빈칸을 _ 으로 채움
+|{0: f}| 소수점 출력
+|{0: .2f}| 소수점 둘째 자리 까지 출력(반올림)
+|{0:\^<+10,}| 10자리를 확보하고 3자리마다 쉼표를 삽입하며 부호를 나타내고 빈칸을 ^로 채움
+|===
+
+[source, python]
+----
+value = 10000
+print("{0:+}".format(value))
+print("{0:,}".format(value))
+print("{0:>10}".format(value))
+print("{0:^< 10}".format(value))
+print("{0:_<+10,}".format(value))
+print("{0:.2f}".format(value))
+----
+실행 결과:
+----
++10000
+10,000
+     10000
+ 10000^^^^
++10,000___
+10000.00
+----
+
+== Escape 문자 사용
+
+특수 문자 출력, 줄바꿈 등의 처리를 위해 Escape 문자로 역슬래쉬( `\` )를 사용할 수 있습니다. 자주 사용하는 Escape 문자는 아래와 같습니다.
+
+[cols="1, 3", option="header", width="500"]
+|===
+|문자|설명
+|\'|작은 따옴표 출력
+|\""|큰 따옴표 출력
+|\\ |역슬래쉬 출력
+|\?|물음표 출력
+|\n|줄 바꿈
+|\t|가로 탭
+|\v|세로 탭
+|\b|백 스페이스(한 글자 삭제)
+|\r|커서를 맨 앞으로 이동하고 \r이후 문자 입력
+|===
+
+아래 코드는 \t 를 사용하여 구구단을 포맷에 맞게 출력합니다.
+
+[source, python]
+----
+for i in range(2, 10):
+    for j in range(2, 10):
+        print("{0} x {1} = {2}".format(i, j, i * j, end="\t"))
+    print()
+----
+
+=== 변수 Stackeholder 지정
+
+%d, %s, %c 를 사용해서 정수, 문자열, 문자가 출력될 자리의 위치를 지정할 수 있습니다.
+
+[source, python]
+----
+print("%s is %d years old" %("celine", 21))
+----
+실행 결과:
+----
+celine is 21 years old
+----
+
+format 함수를 사용할 수도 있습니다. format 함수는 값이 들어갈 위치를 { }로 표시합니다.
+
+[source, python]
+----
+print("{} is {} years old".format("celine", 21))
+----
+실행 결과:
+----
+celine is 21 years old
+----
+
+변수를 사용할 경우, f"변수명"을 사용할 수 있습니다.
+
+[source, python]
+----
+name = "celine"
+age = 21
+print(f"{name} is {age} years old")
+----
+실행 결과:
+----
+celine is 21 years old
+----
