@@ -17,3 +17,4 @@ link:./contents/01_python_language.adoc[Module 02: Python 프로그래밍 언어
 ** link:./contents/16_recommdation.adoc[권장 사항]
 * link:./17_lab2-1.adoc[Lab 2-1 간단한 Python 프로그램 작성]
 * link:./18_lab2-2.adoc[Lab 2-2 디버깅]
+* link:./19_lab2-3.adoc[Lab 2-3 예외 처리]
