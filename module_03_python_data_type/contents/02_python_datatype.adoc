@@ -1,3 +1,5 @@
 = Python Data Type
 
+모든 변수에는 변수에 저장할 값의 범위를 결정하는 타입이 지정됩니다. 
+
 == Table of Contents
