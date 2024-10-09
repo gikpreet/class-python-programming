@@ -313,3 +313,6 @@ Python 표준 라이브러리는 아래 구성요소들을 포함합니다.
 * 보안 모듈
 
 각 모듈의 자세한 내용은 link:https://docs.python.org/ko/3/library/intro.html[Python 표준 라이브러리] 을 참조하세요
+
+link:./04_run_script.adoc[이전: Python 스크립트 실행] +
+link:./06_demo.adoc[다음: 데모: Python 스크립트 실행]

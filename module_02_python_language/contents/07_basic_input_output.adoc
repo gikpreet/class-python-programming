@@ -8,3 +8,6 @@
 2. 표준 출력
 3. 파일 입력
 4. 파일 출력
+
+link:./06_demo.adoc[이전: 데모: Python 스크립트 실행] +
+link:./08_stdin.adoc[다음: 표준 입력]

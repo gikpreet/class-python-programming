@@ -47,3 +47,6 @@ fahr = int(input('화씨 온도:'))
 celsius = (5 / 9) * (fahr - 32)
 print(celsius)
 ----
+
+link:./07_basic_input_output.adoc[이전: Chapter 2: 기초적인 입/출력 동작] +
+link:./09_stdout_err.adoc[다음: 표준 출력]

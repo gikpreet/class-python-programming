@@ -56,3 +56,6 @@ Enter your name: Celine
 Enter your age: 21
 Greetings Celine 21 years old
 ----
+
+link:./16_recommdation.adoc[이전: 권장 사항] +
+link:./18_lab2-2.adoc[다음: Lab 2-2 디버깅]

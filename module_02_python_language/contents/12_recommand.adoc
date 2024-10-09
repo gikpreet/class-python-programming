@@ -8,3 +8,6 @@
 2. docstring
 3. 예외 처리
 4. 권장 사항
+
+link:./11_file_output.adoc[이전: 파일 출력] +
+link:./13_comment.adoc[다음: 주석]

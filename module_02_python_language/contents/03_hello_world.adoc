@@ -65,3 +65,7 @@ public class Hello {
         System.out.println("Hello, World!");
     }
 }
+----
+
+link:./02_python_structure.adoc[이전: Chapter 1: Python 프로그램 구조] +
+link:./04_run_script.adoc[다음: Python 스크립트 실행]

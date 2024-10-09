@@ -99,3 +99,6 @@ except ZeroDivisionError as e:
 6. 예외가 처리되는 것을 확인합니다.
 +
 image:../images/image10.png[]
+
+link:./18_lab2-2.adoc[이전: Lab 2-2 디버깅] +
+link:./20_review.adoc[다음: 검토]

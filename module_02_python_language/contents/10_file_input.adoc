@@ -205,3 +205,6 @@ with open("낙화.txt", "r", encoding="UTF-8") as file:
 for s in list:
     print(s)
 ----
+
+link:./09_stdout_err.adoc[이전: 표준 출력] +
+link:./11_file_output.adoc[다음: 파일 출력]

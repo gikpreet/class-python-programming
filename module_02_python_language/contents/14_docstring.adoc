@@ -62,3 +62,6 @@ gCD(a, b)
     사용법:
         gCD(2, 4)
 ----
+
+link:./13_comment.adoc[이전: 주석] +
+link:./15_exception.adoc[다음: 예외 처리]

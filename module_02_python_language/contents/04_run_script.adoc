@@ -94,3 +94,6 @@ Greetings.py 파일이 위와 같이 수정되었으면, Greetings 모듈을 imp
 $ python HelloWorld.py
 Hello, World!
 ----
+
+link:./03_hello_world.adoc[이전: Hello, World] +
+link:./05_basic_library.adoc[다음: 기본 라이브러리]

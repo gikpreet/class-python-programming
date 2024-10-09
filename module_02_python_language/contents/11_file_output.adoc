@@ -64,3 +64,6 @@ list = ["구름에 달 가듯이\n", "가는 나그네"]
 with open("나그네.txt", mode="a", encoding="UTF-8") as file:
     file.writelines(list)
 ----
+
+link:./10_file_input.adoc[이전: 파일 입력] +
+link:./12_recommand.adoc[다음: Chapter 3: 권장 사항]

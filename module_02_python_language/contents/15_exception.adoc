@@ -21,6 +21,9 @@ Error 객체의 정보 또는 strerror등의 속성을 사용하여 발생한 �
 [Errno 2] No such file or directory: '나그.txt'
 ----
 
+link:./14_docstring.adoc[이전: docstring] +
+link:./16_recommdation.adoc[다음: 권장 사항]
+
 https://wikidocs.net/16060
 
 https://docs.python.org/ko/3/tutorial/errors.html

@@ -211,3 +211,6 @@ print(f"{name} is {age} years old")
 ----
 celine is 21 years old
 ----
+
+link:./08_stdin.adoc[이전: 표준 출력] +
+link:./10_file_input.adoc[다음: 파일 입력]

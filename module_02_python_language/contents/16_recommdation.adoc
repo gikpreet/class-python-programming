@@ -42,3 +42,6 @@ Python은 코드의 가독성과 일관된 코드 작성을 위한 가이드를 
 
 * link:./https://peps.python.org/pep-0008/[PEP 8 – Style Guide for Python Code]
 * link:./https://realpython.com/documenting-python-code/[PEP8 한국어 번역]
+
+link:./15_exception.adoc[이전: 예외 처리] +
+link:./17_lab2-1.adoc[다음: Lab 2-1 간단한 Python 프로그램 작성]

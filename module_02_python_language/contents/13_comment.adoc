@@ -44,3 +44,6 @@ def gCD(a, b):
         return b
     return gCD(a, a % b)
 ----
+
+link:./12_recommand.adoc[이전: Chapter 3: 권장 사항] +
+link:./14_docstring.adoc[다음: docstring]

@@ -30,4 +30,6 @@ image:../images/image06.png[]
 +
 10. F5 키를 눌러 프로그램 실행을 계속합니다. 터미널 창에서 실행이 완료된 것을 확인합니다.
 
-https://dmoogi.tistory.com/93
+link:./17_lab2-1.adoc[이전: Lab 2-1 간단한 Python 프로그램 작성
+] +
+link:./19_lab2-3.adoc[다음: Lab 2-3 예외 처리]
