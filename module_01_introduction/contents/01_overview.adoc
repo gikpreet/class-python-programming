@@ -12,3 +12,6 @@
 == Table of Contents
 
 1. Python 소개
+2. Python 인터프리터
+
+link:./02_introduction_to_python.adoc[다음: Chapter 1 Python 소개]

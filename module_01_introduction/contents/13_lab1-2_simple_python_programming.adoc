@@ -131,3 +131,5 @@ _ 변수는 읽기 전용으로 취급되어야 하며, 직접 값을 대입해�
 >>> '"Isn\'t," they said.'
 '"Isn\'t," they said.'
 ----
+
+link:./12_lab1-1_install_anaconda.adoc[이전: Lab 1-1 Anaconda 설치]

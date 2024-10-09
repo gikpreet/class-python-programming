@@ -3,8 +3,11 @@
 * Python은 인터프리터 언어로, 소스 코드를 한 줄씩 읽어 내려가며 읽은 코드가 실행되는 환경에서 동작
 * Python 인터프리터는 Compiler와 Virtual Machine으로 구성됨
 
-image:../images/image01.png[]
+image:../images/image02.png[]
 
 ---
 
 Python은 인터프리터 언어로, 작성된 소스 코드를 인터프리터가 한 줄씩 읽어들여 읽은 한 줄의 코드를 즉시 실행하는 방식으로 실행됩니다. 
+
+link:./04_python_programming_language.adoc[이전: Python 프로그래밍 언어] +
+link:./06_python_interpreter.adoc[다음: Chapter 2: Python 인터프리터]

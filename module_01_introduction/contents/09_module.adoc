@@ -57,3 +57,6 @@ fibo.__name__
 fib(500)
 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 ----
+
+link:./08_python_virtual_machine.adoc[이전: Python Virtual Machine] +
+link:./10_history_python.adoc[다음: Python의 역사]

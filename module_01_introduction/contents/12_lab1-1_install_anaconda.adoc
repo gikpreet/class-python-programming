@@ -13,3 +13,6 @@ link:https://github.com/gikpreet/class-environment_settings/blob/main/05_Data_An
 == Ubuntu Linux에 Anaconda 설치
 
 link:https://github.com/gikpreet/class-environment_settings/blob/main/05_Data_Analytics/anaconda/03_anaconda_ubuntu_2204.adoc[Install Anaconda on Ubuntu 22.04]
+
+link:./10_history_python.adoc[이전: Python의 역사] +
+link:./13_lab1-2_simple_python_programming.adoc[다음: Lab 1-2 Python 인터프리터 사용]
