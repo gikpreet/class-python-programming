@@ -1,5 +1,0 @@
-= 권장 사항
-
-https://zerosheepmoo.github.io/pep8-in-korean/doc/introduction.html
-
-https://realpython.com/documenting-python-code/

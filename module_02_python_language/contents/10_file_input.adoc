@@ -1,0 +1,207 @@
+= 파일 입력
+
+* open() 함수를 사용하여 운영체제의 파일을 읽음
+* "r", "w", "x" 등의 파라미터로 파일의 읽기, 쓰기, 읽기/쓰기 모드를 지정
+* 열린 파일은 TextIOWrapper 타입이며, 해당 타입의 메소드를 사용
+** readline 메소드를 사용하여 한 줄씩 읽음
+** readlines 메소드를 사용하여 모든 라인이 포함된 list로 return 받음
+** read 메소드를 사용하여 전체 내용을 문자열로 return 받음
+* 열린 파일은 반드시 닫아야 함
+
+---
+
+Python 기본 라이브러리는 파일을 읽고, 읽은 파일을 운영체제의 파일과의 스트림 형태로 저장하고, 파일을 수정하기 위한 함수와 객체들을 제공합니다. Python에서는 다른 언어에 비해 단순하고 쉬운 방법으로 파일들을 읽고 수정하고 저장할 수 있습니다.
+
+파일을 열기 위해서는 open 함수를 사용합니다. Python 도움말(help 함수)에서 설명하는 open 함수의 개요는 아래와 같습니다.
+
+----
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+    Open file and return a stream.  Raise OSError upon failure.
+
+    file is either a text or byte string giving the name (and the path
+    if the file isn't in the current working directory) of the file to
+    be opened or an integer file descriptor of the file to be
+    wrapped. (If a file descriptor is given, it is closed when the
+    returned I/O object is closed, unless closefd is set to False.)
+----
+
+아래 코드는 실행되는 Python 스크립트와 같은 디렉토리에 있는 낙화.txt 파일을 읽어 출력합니다.
+
+[source, python]
+----
+file = open("낙화.txt", "r", encoding="UTF-8")
+fallen_flower = file.read()
+file.close()
+
+print(fallen_flower)
+----
+
+== 파일 읽기 모드
+
+open 함수를 사용하여 파일을 열 때, 읽기 모드 또는 쓰기 모드등 용도에 따른 파일 열기 모드를 지정해야 합니다. 아래와 같은 모드를 사용할 수 있습니다.
+
+[cols="1, 3", opttion="header"]
+|===
+|모드|설명
+|'r'|open for reading (default)
+|'w'|open for writing, truncating the file first
+|'x'|create a new file and open it for writing
+|'a'|open for writing, appending to the end of the file if it exists
+|'b'|binary mode
+|'t'|text mode (default)
+|'+'|open a disk file for updating (reading and writing)
+|===
+
+== with 사용
+
+파일을 열면 리소스 관리와 메모리 누수등을 방지하기 위해 반드시 닫아야 합니다. 이를 자동화 하기 위해 많은 프로그래밍 언어는 using, try-with-resource 등의 구문을 제공합니다. Python에서는 with를 사용할 수 있습니다. with를 사용하여 파일을 열면 with 블록내의 statement들이 실행된 후 파일을 자동으로 닫습니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    fallen_flower = file.read()
+
+print(fallen_flower)
+----
+
+== 파일 읽기
+
+open 메소드는 file 파라미터에 유효한 인자가 전달되고 파일이 텍스트 파일인 경우 io.TextIOWrapper 타입 객체를 return 합니다. 파일이 이진 파일인 경우 io.BufferedReader 또는 io.BufferedWriter 타입 객체를 return 합니다. 이 객체들은 io.IOBase라는 클래스에서 상속됩니다.
+
+Python 도움말(help 함수)에서 설명하는 io.IOBase 객체의 개요는 아래와 같습니다.
+
+----
+io.IOBase = class IOBase(_io._IOBase)
+ |  The abstract base class for all I/O classes.
+ |
+ |  This class provides dummy implementations for many methods that
+ |  derived classes can override selectively; the default implementations
+ |  represent a file that cannot be read, written or seeked.
+ |
+ |  Even though IOBase does not declare read, readinto, or write because
+ |  their signatures will vary, implementations and clients should
+ |  consider those methods part of the interface. Also, implementations
+ |  may raise UnsupportedOperation when operations they do not support are
+ |  called.
+ |
+ |  The basic type used for binary data read from or written to a file is
+ |  bytes. Other bytes-like objects are accepted as method arguments too.
+ |  In some cases (such as readinto), a writable object is required. Text
+ |  I/O classes work with str data.
+ |
+ |  Note that calling any method (except additional calls to close(),
+ |  which are ignored) on a closed stream should raise a ValueError.
+ |
+ |  IOBase (and its subclasses) support the iterator protocol, meaning
+ |  that an IOBase object can be iterated over yielding the lines in a
+ |  stream.
+----
+
+io.IOBase 타입의 주요 메소드는 아래와 같습니다.
+
+[cols="1, 3", option="header"]
+|===
+|메소드|설명
+|open(file,mode='r',encoding=None,...)|파일 열기
+|close()|파일을 닫습니다. 호출하지 않아도 객체가 제거 될 때 닫힙니다.
+|flush()|버퍼를 비웁니다.
+|readable()|파일을 읽을 수 있는지 여부를 Boolean 값으로 반환합니다.
+|writable()|파일에 쓸 수 있는지 여부를 Boolean 값으로 반환합니다.
+|seek(offset,whence=SEEK_SET)|파일 포인터의 위치를 지정합니다.
+|tell()|파일 포인터의 위치를 설정합니다.
+|read([size])|전체 파일을 읽습니다.
+|readline([size])|파일을 한 라인씩 읽습니다
+|readlines([sizehint])|전체 파일을 읽어서 list 타입 객체로 return 합니다.
+|write(str)|파일을 씁니다.
+|writelines(sequenc)|sequence 타입의 모든 요소를 한 줄씩 파일에 씁니다.
+|===
+
+속성은 아래와 같습니다.
+
+[cols="1, 3", option="header"]
+|===
+|속성|설명
+|encoding|재 사용되고 있는 인코딩(텍스트 파일에서만 유효)
+|closed|파일이 닫혔는지 여부를 True, False로 리턴
+|name|파일 이름
+|mode|파일 열기 모드 조회
+|===
+
+**read 함수**
+
+read 함수는 전체 파일을 읽습니다. 객체가 io.TextIOWrapper 타입인 경우 문자열 타입으로 반환합니다. 아래 코드는 파일의 모든 텍스트를 읽어 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    fallen_flower = file.read()
+
+print(fallen_flower)
+----
+
+read 함수 파라미터로 숫자가 전달되면 전달된 숫자 만큼의 문자를 읽어 반환합니다. 아래 코드는 파일에서 100자의 문자를 읽어 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    fallen_flower = file.read(100)
+
+print(fallen_flower)
+----
+
+**readline 함수**
+
+readline 함수는 파일의 내용을 한 줄 읽어 문자열 타입으로 반환합니다. 아래 코드는 파일의 첫 줄을 읽어 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    fallen_flower = file.readline()
+
+print(fallen_flower)
+----
+
+readline 함수 파라미터로 숫자가 전달되면 전달된 숫자 만큼의 문자를 읽어 반환합니다. 아래 코드는 파일의 첫 줄에서 1자의 문자를 읽어 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    fallen_flower = file.readline(1)
+
+print(fallen_flower)
+----
+
+아래 코드는 readline 메소드를 사용하여 모든 라인을 읽어 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    while True:
+        line = file.readline()
+        print(line)
+        if line == "": 
+            break
+----
+
+**readlines 함수**
+
+readlines 함수는 파일을 줄 단위로 읽어 list 타입으로 반환합니다. 아래 코드는 readlines 함수를 사용하여 파일의 모든 라인을 list의 각 요소로 return 받아 첫 번째 줄의 텍스트를 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    list = file.readlines()
+
+print(list[0])
+----
+
+아래 코드는 모든 라인을 출력합니다.
+
+[source, python]
+----
+with open("낙화.txt", "r", encoding="UTF-8") as file:
+    list = file.readlines()
+
+for s in list:
+    print(s)
+----
