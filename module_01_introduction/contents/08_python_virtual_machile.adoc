@@ -1,3 +1,0 @@
-= Python Virtual Machine
-
-https://caiocozza-art.medium.com/a-quick-overview-of-the-python-virtual-machine-pt-1-315e74c036f4
