@@ -1,0 +1,5 @@
+= 문자열 타입
+
+---
+
+https://wikidocs.net/13

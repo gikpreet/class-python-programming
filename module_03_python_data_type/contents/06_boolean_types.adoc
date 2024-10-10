@@ -1,1 +1,125 @@
 = Boolean 타입
+
+* 참(True) 또는 거짓(False) 값을 나타내는 데이터 타입
+* 조건문, 비교 연산, 논리 연산에 주로 사용됨
+* 정수 0과 1로도 간주 됨
+* bool 함수를 사용하여 True, False를 판단할 수 있음
+
+---
+
+참(True) 또는 거짓(False) 값을 나타내는 Boolean 타입은 Python에서 bool 타입으로 선언됩니다. bool 타입은 조건문, 비교 연산, 논리 연산에 주로 사용되며 정수 0과 1로도 간주됩니다. Python 도움말(help 함수)에서 설명하는 bool 타입의 개요는 아래와 같습니다.
+
+----
+class bool(int)
+ |  bool(x) -> bool
+ |
+ |  Returns True when the argument x is true, False otherwise.
+ |  The builtins True and False are the only two instances of the class bool.
+ |  The class bool is a subclass of the class int, and cannot be subclassed.
+ |
+ |  Method resolution order:
+ |      bool
+ |      int
+ |      object
+----
+
+bool 타입은 아래와 같이 선언하고 초기화 할 수 있습니다.
+
+[source, python]
+----
+is_true = True
+is_false = False
+----
+
+아래 코드의 비교 연산은 bool 타입을 return 합니다.
+
+[source, python]
+----
+>>> 5 > 3
+True
+>>> 2 == 4
+False
+----
+
+bool 타입은 정수로 변환할 수 있습니다. True는 0, False는 0으로 변환됩니다.
+
+[source, python]
+----
+>>> print(int(True), int (False))
+1 0
+----
+
+아래와 같은 코드를 사용하여 조건문을 쓸 수 있습니다.
+
+[source, python]
+----
+if 1:
+    print(int(1))
+----
+
+== bool 함수 사용
+
+bool 함수는 주어진 값이 True 인지 False인지 판별합니다. Python에서는 값이 0이거나, 또는 값이 비어있는 경우 False, 그렇지 않은 경우 True로 판단합니다.
+
+아래 코드와 같이 bool 함수를 사용하여 정수의 참과 거짓을 판별할 수 있습니다.
+
+[source, python]
+----
+>>> print(bool(0))
+False
+>>> print(bool(1))
+True
+----
+
+실수를 사용하여 참과 거짓을 판별할 수 있습니다.
+
+[source, python]
+----
+>>> print(bool(0.0))
+False
+>>> print(bool(5.5))
+True
+----
+
+문자열, 리스트, 투플, 집합은 비어있으면 False, 비어있지 않으면 True로 판별합니다.
+
+[source, python]
+----
+# 문자열
+>>> print(bool(''))
+False
+>>> print(bool('Hello'))
+True
+
+# list
+>>> print(bool([]))
+False
+>>> print(bool([1, 2, 3]))
+True
+
+# tuble
+>>> print(bool(()))
+False
+>>> print(bool((1, 2, 3)))
+True
+
+# dictionary
+>>> print(bool({}))
+False
+>>> print(bool({'key': 'value'}))
+True
+
+# set
+>>> print(bool(set()))
+False
+>>> print(bool({1, 2, 3}))
+True
+----
+
+다른 언어에서 참조할 객체가 할당되지 않은 변수의 값인 null은 Python에서 None으로 표현합니다. None은 False로 판별됩니다.
+
+[source, python]
+----
+>>> print(bool(None))
+False
+----
