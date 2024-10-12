@@ -1,3 +1,7 @@
 = tuple 타입
 
+* 다양한 타입의 요소들의 나열
+* 괄호( () )를 사용하여 선언하며, 쉼표( , )로 구분
+* tuple 타입 객체이며, 불변형(Immutable)
+
 https://wikidocs.net/15
