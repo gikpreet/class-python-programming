@@ -18,7 +18,7 @@ Python은 세 가지의 sequence 타입을 제공합니다.
 
 === 일반적인 동작
 
-모든 Sequence 타입은 순서가 유지되고, 정수로 인덱싱하며, 길이가 있습니다.
+모든 Sequence 타입은 순서가 유지되고, 정수로 인덱싱하며, 길이가 있습니다. 길이는 len() 함수를 사용하여 구할 수 있습니다.
 
 [source, python]
 ----
@@ -57,6 +57,36 @@ print(a + b)    # a와 b를 이어 붙임 "hello celine"을 출력
 
 ----
 hello celine
+----
+
+== 인덱싱
+
+인덱스를 사용하여 특정 위치의 요소를 얻을 수 있습니다. 인덱싱 기호는 C, C#, Java 등의 언어에서와 마찬가지로 대괄호 기호([ ])를 사용합니다.
+
+[source, python]
+----
+a = "123456789"
+print(a[0])
+----
+
+----
+1
+----
+
+인덱스가 Sequence의 범위를 벗어나면 Java 등의 언어에서와 마찬가지로 Error가 발생합니다.
+
+[source, python]
+----
+a = "123456789"
+print(a[9])
+----
+
+----
+Traceback (most recent call last):
+  File "D:\Code\Python\Test.py", line 2, in <module>
+    print(a[9])
+          ~^^^
+IndexError: string index out of range
 ----
 
 === 슬라이싱
@@ -100,4 +130,53 @@ for s in a:
     print(s)
 ----
 
-https://wikidocs.net/84391#google_vignette
+== Sequence 타입 객체 메소드
+
+Sequence 타입의 객체(문자열, 리슽, 투플)은 아래 메소드들을 가지고 있습니다.
+
+**count() 메소드**
+
+count() 메소드는 객내에의 요소 중 파라미터로 전달받은 값에 해당하는 값의 개수를 반환합니다.
+
+[source, python]
+----
+tuple = ('1','2','3','4','5','6','7','8','9')
+print(tuple.count('2'))
+----
+
+----
+1
+----
+
+**index() 메소드**
+
+count() 메소드는 객내에의 요소 중 파라미터로 전달받은 값에 해당하는 값의 인덱스 값을 정수로 반환합니다.
+
+[source, python]
+----
+list = ['1','2','3','4','5','6','7','8','9']
+print(list.index("2"))
+----
+
+----
+1
+----
+
+**join() 메소드**
+
+문자열을 파라미터로 전달받은 Sequence 값의 각 요소 사이에 삽입한 값을 문자열로 반환합니다.
+
+[source, python]
+----
+string = "123456789"
+list = ['1','2','3','4','5','6','7','8','9']
+
+print(".".join(string))
+print(".".join(list))
+----
+
+----
+'1.2.3.4.5.6.7.8.9'
+'1.2.3.4.5.6.7.8.9'
+----
+
