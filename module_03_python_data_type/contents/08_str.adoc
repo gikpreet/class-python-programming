@@ -1,5 +1,98 @@
 = 문자열 타입
 
+* 연속된 문자열의 나열
+* 큰 따옴표(" ") 또는 작은 따옴표(' ')로 표현
+* str 타입 객체이며, 불변형(Immutable)
+
 ---
+
+Python에서 문자열은 Sequence 타입으로, 큰 따옴표(" ") 또는 작은 따옴표(' ')로 둘러싸인 문자(Chractor)들의 순서를 의미하며, str 타입의 객체입니다. Python 도움말(help 함수)에서 설명하는 bool 타입의 개요는 아래와 같습니다.
+
+class str(object)
+ |  str(object='') -> str
+ |  str(bytes_or_buffer[, encoding[, errors]]) -> str
+ |
+ |  Create a new string object from the given object. If encoding or
+ |  errors is specified, then the object must expose a data buffer
+ |  that will be decoded using the given encoding and error handler.
+ |  Otherwise, returns the result of object.__str__() (if defined)
+ |  or repr(object).
+ |  encoding defaults to sys.getdefaultencoding().
+ |  errors defaults to 'strict'.
+
+== 문자열 생성
+
+Python에서는 4가지 방법을 사용하여 문자열을 정의할 수 있습니다. 크게는 큰 따옴표와 작은 따옴표 모두를 사용할 수 있으며, 어떤 방법을 사용하든 결과는 동일합니다. PEP에서는 두 방법 중 하나를 사용하는 것을 특별히 권장하지 않으며, 자유롭게 사용하는 것을 추천합니다.
+
+**큰따옴표로 사용**
+
+큰 따옴표를 사용하여 문자열을 정의할 수 있습니다. 전형적인 방법으로, "Hello World"와 같이 사용합니다.
+
+[source, python]
+----
+message = "Hello, World!"
+----
+
+문자열이 `'` 문자를 포함해야 하는 경우, Escape character를 사용할 수도 있지만, 큰 따움표로 문자열을 선언할 경우 `'` 문자를 그대로 사용할 수 있습니다. 
+
+[source, python]
+----
+print("hello, ' World!")
+----
+
+----
+hello, ' World!
+----
+
+**작은 따옴표 사용**
+
+큰 따옴표를 사용하여 문자열을 정의할 수 있습니다. 전형적인 방법으로, 'Hello World'와 같이 사용합니다.
+
+[source, python]
+----
+message = "Hello, World!"
+----
+
+문자열이 `"` 문자를 포함해야 하는 경우, Escape character를 사용할 수도 있지만, 큰 따움표로 문자열을 선언할 경우 `"` 문자를 그대로 사용할 수 있습니다. PEP에서는 문자열이 `'` 를 포함하는 경우 문자열 선언에 큰 따옴표를, `"` 를 포함하는 경우 작은 다옴표를 사용하는 것을 권장합니다.
+
+[source, python]
+----
+print('hello, " World!')
+----
+
+----
+hello, " World!
+----
+
+문자열이 `'` 를 포함하는데 문자열 선언에 작은 따옴표를 사용하면 에러가 발생합니다.
+
+----
+>>> print('hello, ' World!')
+  File "<stdin>", line 1
+    print('hello, ' World!')
+          ^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+----
+
+**큰따옴표 3개 사용**
+
+큰 따옴표 3개를 사용하여 문자열을 정의할 수 있습니다.
+
+[source, python]
+----
+message = """Life is too short, You need python"""
+----
+
+**작은따옴표 3개 사용**
+'''Life is too short, You need python'''
+
+작은 따옴표 3개를 사용하여 문자열을 정의할 수 있습니다.
+
+[source, python]
+----
+message = '''Life is too short, You need python'''
+----
+
+
 
 https://wikidocs.net/13
