@@ -7,3 +7,5 @@
 == Table of Contents
 
 1. 변수 명명 규칙
+2. 권장되는 변수 이름 짓기
+3. Python Keyword
