@@ -4,4 +4,4 @@
 
 ---
 
-https://ondemand.tistory.com/255
+Python에는 ++, -- 등의 증감 연산자가 존재하지 않습니다.

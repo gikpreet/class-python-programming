@@ -1,3 +1,5 @@
 = 타입 변환 규칙
 
+* '가능하면' 변환함
+
 https://velog.io/@yjoct13/Python-Data-Types

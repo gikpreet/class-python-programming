@@ -1,1 +1,59 @@
 = 변수 선언과 값 할당
+
+* Python 에서 변수는 선언과 할당이 동시에 이루어짐
++
+[source, python]
+----
+customer_count = 0
+----
++
+* 여러 변수를 한 번에 선언하고 할당할 수 있음
++
+[source, python]
+----
+customer_number, product_number = 0, 1
+----
++
+* 다른 타입의 변수를 한 번에 선언하고 할당할 수 있음
++
+[source, python]
+----
+student_number, student_name = 1, "celine"
+----
+
+---
+
+블록 내부에 선언된 변수를 지역 변수 또는 로컬 변수라고 합니다.
+
+== 변수 선언
+
+Python에서는 변수의 선언과 초기화가 동시에 이루어져야 합니다. 일반적으로 변수는 아래와 같이 선언됩니다.
+
+[source, python]
+----
+customer_count = 0
+----
+
+쉼표를 구분자로 사용하여 여러 변수를 한 번에 선언하고 한 번에 할당할 수 있습니다.
+
+[source, python]
+----
+customer_count, product_count = 0, 1
+----
+
+== 초기화 되지 않은 변수
+
+Python에서는 초기화되지 않은 변수는 사용할 수 없습니다. 아래의 코드는 customer_count 변수에 값을 할당하지 않았기 때문에 선언되지 않은 것으로 간주하고 실행시 오류가 발생합니다.
+
+[source, python]
+----
+customer_count
+print(customer_count)
+----
+
+----
+Traceback (most recent call last):
+  File "D:\Code\Test.py", line 1, in <module>        
+    customer_count
+NameError: name 'customer_count' is not defined
+----

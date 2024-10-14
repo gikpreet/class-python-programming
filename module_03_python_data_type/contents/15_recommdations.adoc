@@ -27,4 +27,3 @@
 == Snake Casing 명명 규칙
 
 Snake 명명 규칙은 CalemCasing과 유사하지만, 각 단어를 연결할 때 언더스코어( _ )를 사용하는 방법입니다. 
-
