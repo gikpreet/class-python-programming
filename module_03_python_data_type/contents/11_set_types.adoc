@@ -14,3 +14,14 @@ class set(object)
  |
  |  Build an unordered collection of unique elements.
 ----
+
+== set 생성
+
+set은 set 함수를 사용하여, 파라미터로 Sequence 객체를 사용하여 생성합니다. 아래 코드는 원소를 포함하지 않는 set을 선언합니다.
+
+[source, python]
+----
+set = set()
+----
+
+https://wikidocs.net/1015
