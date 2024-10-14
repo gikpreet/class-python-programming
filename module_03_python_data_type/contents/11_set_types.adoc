@@ -1,1 +1,16 @@
 = Set 타입
+
+* 수학에서 말하는 집합(set)
+* 순서가 중요하지 않으며, 중복된 자료를 허용하지 않음
+
+---
+
+Python에서 set은 수학에서 사용하는 집합(set)에 해당하는 객체이며, set 함수를 호출하여 생성되는 set 타입의 객체입니다. Python 도움말(help 함수)에서 설명하는 set 타입의 개요는 아래와 같습니다.
+
+----
+class set(object)
+ |  set() -> new empty set object
+ |  set(iterable) -> new set object
+ |
+ |  Build an unordered collection of unique elements.
+----

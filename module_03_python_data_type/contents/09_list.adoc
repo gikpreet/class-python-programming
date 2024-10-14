@@ -6,7 +6,7 @@
 
 ---
 
-Python에서 리스트는 Sequence 타입으로, 대괄호( [ ] ) 둘러싸였으며 쉼표( ,) 로 구분된 다양한 타입의 요소들의 나열이며. list 타입의 객체입니다. Python 도움말(help 함수)에서 설명하는 bool 타입의 개요는 아래와 같습니다.
+Python에서 list는 Sequence 타입으로, 대괄호( [ ] ) 로 표시되는 쉼표( , ) 로 구분된 다양한 타입의 요소들의 나열이며, list 타입의 객체입니다. Python 도움말(help 함수)에서 설명하는 list 타입의 개요는 아래와 같습니다.
 
 ----
 class list(object)
