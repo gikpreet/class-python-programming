@@ -1,5 +1,18 @@
 = Python Data Type
 
-모든 변수에는 변수에 저장할 값의 범위를 결정하는 타입이 지정됩니다. 
+모든 변수에는 변수에 저장할 값의 범위를 결정하는 타입이 지정됩니다. Python 프로그래밍 언어는 동적언어로, 변수에 할당되는 값의 타입을 코드가 실행될 때 판단합니다.
+
+이 단원에서는 Python에서 지원하는 기본 데이터 타입들을 알아바고 타입 변수에 값을 저장하고 연산할 수 있는 방법을 배웁니다.
 
 == Table of Contents
+
+1. Python 데이터 타입
+2. Immutable 타입과 Mutable 타입
+3. Numeric 타입
+4. Boolean 타입
+5. Sequence 타입
+6. 문자열 타입
+7. list 타입
+8. tuple 타입
+9. set 타입
+10. dictionary 타입

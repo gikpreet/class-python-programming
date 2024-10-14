@@ -1,5 +1,24 @@
 = Python Keyword
 
+* 키워드는 예약된 식별자로, 지정된 용도 이외에는 사용할 수 없음
++
+`False`, `None`, `True`, `and`, `if`, `as`, `assert`, `async`
++
+* 키워드는 변수 이름으로 사용할 수 없음
 
+---
 
-https://wikidocs.net/20557
+Python에서는 다른 대부분의 언어에서와 마찬가지로 키워드를 변수 이름으로 사용할 수 없습니다. 키워드를 변수 이름으로 사용하면 실행시에 오류가 발생합니다.
+
+Python의 키워드 목록은 keyword 라이브러리의 kwlist에서 확인할 수 있습니다.
+
+[source, python]
+----
+import keyword
+
+print(keyword.kwlist)
+----
+
+----
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+----

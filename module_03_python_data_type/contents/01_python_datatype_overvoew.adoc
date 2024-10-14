@@ -12,3 +12,6 @@
 * 기존 변수를 다른 타입으로 변환합니다.
 
 == Table of Contents
+
+1. Python 데이터 타입
+2. Naming convention
