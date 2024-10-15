@@ -1,2 +1,8 @@
-== 검토
+= 검토
 
+* Python Data Type
+* Naming Convention
+* 데이터 타입 사용
+* 타입 변환
+
+---
