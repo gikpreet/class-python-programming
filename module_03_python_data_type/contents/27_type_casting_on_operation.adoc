@@ -1,1 +1,48 @@
 = 연산 시 타입 변환
+
+* 표현 범위가 넓은 데이터 타입으로 변환
+* `/` 연산자는 float을 반환
+
+---
+
+Python에서 다른 타입간의 연산시 return 값은 표현 범위가 넓은 쪽으로 암시적 캐스팅됩니다. 아래 코드와 같이 int와 float의 연산인 경우 표현 범위가 넓은 float 타입으로 결과를 return 합니다.
+
+[source, python]
+----
+i = 2
+f = 2.5
+k = i * f
+print(k, type(k))
+----
+
+----
+5.0 <class 'float'>
+----
+
+계산 결과 값이 두 operand의 타입보다 표현 범위가 큰 경우 넓은 표현 범위의 타입을 반환합니다. 아래 곱하기 연산은 결과 값을 int로 표현할 수 있으므로 int를 반환합니다.
+
+[source, python]
+----
+i = 2
+f = 2
+k = i * f
+print(k, type(k))
+----
+
+----
+4 <class 'int'>
+----
+
+연산자에 따라 return 타입이 다를 수 있습니다. `/` 연산자는 오퍼랜드의 타입에 상관없이 float을 반환합니다.
+
+[source, python]
+----
+i = 2
+f = 2
+k = i / f
+print(k, type(k))
+----
+
+----
+1.0 <class 'float'>
+----

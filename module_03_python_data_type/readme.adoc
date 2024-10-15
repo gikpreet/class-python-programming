@@ -1,0 +1,4 @@
+link:./contents/01_python_datatype_overview.adoc[Module 03: Python 데이터 타입]
+
+* link:./contents/02_python_datatype.adoc[Chapter 1: Python Data Type]
+** link:./contents/03_python_types.adoc[Python Python 데이터 타입]

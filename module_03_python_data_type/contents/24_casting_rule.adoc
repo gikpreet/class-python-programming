@@ -1,5 +1,19 @@
 = 타입 변환 규칙
 
 * '가능하면' 변환함
+* 낮은 정밀도 값에서 높은 정밀도 값으로 변환할 경우 데이터가 손실될 수 있음
+* Mutable, Immutable 사이에서 변환 가능
+* 암시적 형 변환(Implicit type casting) 명시적 형 변환(Explicit type casting)
 
-https://velog.io/@yjoct13/Python-Data-Types
+---
+
+타입 변환(Type casting)은 Python의 주요 기능 중 하나입니다. 타입 변환을 통해 프로그래머는 변수나 데이터를 한 데이터 타입에서 다른 데이터 타입으로 변환할 수 있습니다.
+
+Python은 두 가지 형태의 타입 변환을 지원합니다.
+
+* 암시적 타입 변환(Implicit type casting) +
+프로그래밍 언어에 의해 한 데이터 타입에서 다른 데이터 타입으로 자동으로 변환하는 것을 의미하며, 프로그래머의 명시적인 요청없이 발생합니다.
+* 명시적 타입 변환(Explicit type casting) +
+프로그래머의 명시적인 요청으로 타입을 변환하는 것을 의미합니다. Python에서는 일반적으로 타입 변환을 위한 함수를 사용합니다.
+
+
