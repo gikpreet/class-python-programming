@@ -1,0 +1,51 @@
+= break, continue statement
+
+* break 문은 반복의 밖으로 분기함
+* continue 문은 다음 반복으로 분기함
+
+[source, python]
+----
+i = 0
+while (i < 10):
+    i = i + 1
+    if i % 2 == 0:
+        continue
+    else:
+        print(i)
+----
+
+---
+
+break statement를 사용하면 반복을 종료하고 블록 밖으로 분기합니다. 아래 코드는 i가 10이 되면 while 루프 밖으로 분기합니다.
+
+[source, python]
+----
+i = 0
+while (True):
+    if i >= 10:
+        break
+    else:
+        i = i + 1
+        print(i)
+----
+
+continue statement는 반복 밖으로 분기하지 않고 다음 반복으로 분기합니다. continue statement는 해당 조건을 건너뛰고 싶을때 사용할 수 있습니다. 아래 코드는 i가 짝수인 경우 출력하지 않고 다음 반복으로 분기합니다.
+
+[source, python]
+----
+i = 0
+while (i < 10):
+    i = i + 1
+    if i % 2 == 0:
+        continue
+    else:
+        print(i)
+----
+
+----
+1
+3
+5
+7
+9
+----

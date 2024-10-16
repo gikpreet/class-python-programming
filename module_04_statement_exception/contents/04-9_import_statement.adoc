@@ -1,0 +1,47 @@
+= import statement
+
+* 모듈을 찾고 로드하고, 필요하면 초기화
+* as 키워드를 사용하여 alias를 만들어 사용할 수 있음
+* from 키워드를 사용하여 필요한 함수만 로드할 수 있음
+
+[source, python]
+----
+import datetime as dt
+----
+
+---
+
+Python에서 모듈은 함수, 변수 또는 클래스를 모아놓은 Python 파일을 말합니다. 작성된 Python 파일(확장자가 .py인 파일)은 Python 프로그램에서 로드하여 사용할 수 있습니다. 
+
+sys, Python이 기본적으로 제공하는 모듈이 있으며, 개인 또는 단체에서 만들어서 제공하는 모듈을 사용할 수도 있고, 직접 작성한 python 파일을 로드하여 사용할 수 있습니다.
+
+Python에서 날짜를 사용하기 위해 기본 라이브러리에 포함된 datetime 모듈을 사용할 수 있습니다.
+
+[source, python]
+----
+import datetime
+
+print(datetime.datetime.now())
+----
+
+----
+2024-10-16 23:01:23.330577
+----
+
+as 키워드를 사용하여 import 한 모듈에 별칭을 만들어 사용할 수 있습니다.
+
+[source, python]
+----
+import datetime as dt
+
+print(dt.datetime.now())
+----
+
+from 키워드를 사용하여 모듈에서 필요한 함수만을 로드할 수 있습니다.
+
+[source, python]
+----
+from datetime import now
+
+print(now())
+----

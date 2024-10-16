@@ -1,0 +1,62 @@
+= yield statement
+
+* 생성된 값의 순차적인 산출
+* Lazy evaluation(지연 평가 구현)
+* Generator를 구현할 때 사용
+
+---
+
+함수는 값을 return 합니다. 대부분의 경우 return 값은 단일 값입니다. 여러 값을 return 해야 하는 경우 list 등의 컨테이너 객체를 사용할 수 있습니다(컨테이너 객체 역시 단일 객체입니다). return 되는 값이 list일 경우 모든 값이 미리 준비한 후 return 해야 합니다. (이런 식의 연산을 comprehension이라고 합니다). 이런 경우, return 되는 값이 많을 경우 비효율적일 수 있습니다.
+
+이런 경우에 대한 보다 효율적인 연산을 위해 Lazy Evaluation을 구현할 수 있습니다. Lazy Evaluation을 사용하면 모든 값을 생성하지 않고 값이 필요할 때 생성하고 순차적으로 산출할 수 있습니다.
+
+아래 코드는 1, 2, 3을 순차적으로 산출합니다.
+
+[source, python]
+----
+def foo():
+    yield 1
+    yield 2
+    yield 3
+
+for i in foo():
+    print(i)
+----
+
+----
+1
+2
+3
+----
+
+아래 코드는 정수 값을 무한정으로 순차적 산출합니다.
+
+[source, python]
+----
+def produce():
+    i = 0
+    while(True):
+        yield i
+        i = i + 1
+
+for i in produce():
+    print(i)
+----
+
+yield로 값을 산출하는 함수는 generator 타입 객체를 반환합니다.
+
+[source, python]
+----
+
+def produce():
+    i = 0
+    while(True):
+        yield i
+        i = i + 1
+
+print(type(produce()))
+----
+
+----
+<class 'generator'>
+----

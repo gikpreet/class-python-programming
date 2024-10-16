@@ -1,0 +1,24 @@
+= raise statement
+
+* 예외를 발생시킴
+* 예외에 의미있는 메시지를 제공
+
+---
+
+raise 문은 예외를 발생시킵니다. 프로그램의 동작 중 프로그램의 의도에 맞지 않는 동작이 발생했을때 강제로 예외를 발생해야 할 때가 있습니다. 이런 경우 raise statement를 사용할 수 있습니다.
+
+[source, python]
+----
+i = int(input("Enter number: "))
+
+if i < 1 or i > 365:
+    raise Exception("범위를 벗어났습니다")
+----
+
+----
+Enter number: 0
+Traceback (most recent call last):
+  File "C:Code\Test.py", line 4, in <module>
+    raise Exception("범위를 벗어났습니다")
+Exception: 범위를 벗어났습니다
+----

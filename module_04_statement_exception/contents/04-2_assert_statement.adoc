@@ -1,0 +1,21 @@
+= assert statement
+
+* 개발자가 프로그램을 만드는 과정에 참여
+* 조건이 True임을 보증하기 위해 사용
+* 뒤의 조건이 True가 아니면 AssertError를 발생
+
+---
+
+assert는 예외 처리와 비슷하지만, 예외는 에러를 처리할 때 사용하고, assert는 어떤 조건이 True임을 보증하기 위해 사용합니다.
+
+[source, python]
+----
+name = "2BlockDMask"
+assert name[0].isalpha(), "이름은 알파벳으로만 구성되어야 합니다"
+----
+
+----
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AssertionError: 이름은 알파벳으로만 구성되어야 합니다
+----

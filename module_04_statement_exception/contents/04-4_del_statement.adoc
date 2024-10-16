@@ -1,0 +1,34 @@
+= del statement
+
+* 객체를 메모리에서 제거
+* 변수, 컨테이너 객체의 요소 등 모든 객체에 적용됨
+
+---
+
+del statement는 객체를 메모리에서 제거합니다. 아래 코드는 선언된 i 객체를 메모리에서 제거합니다.
+
+[source, python]
+----
+i = 10
+del i
+
+print(i)
+----
+
+----
+File "C:\Code\Test.py", line 4, in <module>
+    print(i)
+          ^
+NameError: name 'i' is not defined. Did you mean: 'id'?
+----
+
+아래 코드는 list에서 요소를 삭제합니다.
+
+[source, python]
+----
+list = [1,2,3]
+del list[1]
+print(list)
+----
+
+[1, 3]
