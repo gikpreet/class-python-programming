@@ -1,0 +1,14 @@
+= Assignement statement (대입문)
+
+* 값을 변수에 연결(할당)
+* 가변형 객체의 속성이나 항목을 수정
+
+> assignment_stmt ::=  (target_list "=")+ (starred_expression | yield_expression) 
+target_list     ::=  target ("," target)* [","]
+target          ::=  identifier
+                     | "(" [target_list] ")"
+                     | "[" [target_list] "]"
+                     | attributeref
+                     | subscription
+                     | slicing
+                     | "*" target
