@@ -1,0 +1,22 @@
+= Simple statement (단순문)
+
+* 하나의 논리적인 라인 안에 구성
+* 여러 단순문이 세미콜론으로 구분되어 하나의 줄에 나올 수 있음
+
+== Table of Contents
+
+1. expression statement
+2. assignment statement
+3. augmented assignment statement
+4. annotated assignemnt statement
+5. pass statement
+6. del statement
+7. return statement
+8. yield statement
+9. raise statement
+10. break statement
+11. continue statement
+12. import statement
+13. future statement
+14. global statement
+15. nonlocal statement

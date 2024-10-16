@@ -1,0 +1,11 @@
+= Expression statement (표현식 문)
+
+* 값을 계산하고 출력
+* 프로시저를 호출
+
+> expression_stmt ::=  starred_expression
+
+* interactive mode에서 값이 None이 아니면 repr() 함수를 호출해 문자열로 변환하여 표준 출력으로 내 보냄
+
+----
+
