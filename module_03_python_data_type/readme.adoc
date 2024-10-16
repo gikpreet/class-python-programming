@@ -8,6 +8,7 @@ link:./contents/01_python_datatype_overview.adoc[Module 03: Python 데이터 타
 ** link:./contents/07_sequence_types.adoc[Sequence 타입]
 ** link:./contents/08_str.adoc[문자열 타입]
 ** link:./contents/09_list.adoc[list 타입]
+** link:./contents/09-1_packing_unpacking.adoc[Packing, Unpacking]
 ** link:./contents/10_tuple.adoc[tuple 타입]
 ** link:./contents/11_set_types.adoc[Set 타입]
 ** link:./contents/12_dictionary_types.adoc[Dictionary 타입]

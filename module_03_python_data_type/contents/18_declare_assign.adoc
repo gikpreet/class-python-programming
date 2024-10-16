@@ -57,3 +57,23 @@ Traceback (most recent call last):
     customer_count
 NameError: name 'customer_count' is not defined
 ----
+
+== 괄호 사용
+
+변수 선언시 괄호를 사용할 수도 있고, 사용하지 않을 수도 있습니다. 아래 코드의 두 라인은 동일한 동작을 수행합니다.
+
+[source, python]
+----
+i = (5)
+i = 5
+----
+
+두 변수에 값을 동시에 할당할 수 있습니다. 변수는 콤마로 구분됩니다. 괄호를 사용하면 콤마로 구분된 두 값이 tuple임이 명확해 집니다. 아래 코드는 i, j 두 변수의 tuple의 각 요소 값을 할당합니다.
+
+[source, python]
+----
+i, j = (5, 6)
+----
+
+괄호는 생략할 수 있습니다. 괄호가 생략되어도, 콤마로 구분된 두 값은 tuple입니다.
+

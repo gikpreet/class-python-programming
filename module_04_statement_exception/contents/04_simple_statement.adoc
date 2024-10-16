@@ -6,10 +6,7 @@
 == Table of Contents
 
 1. expression statement
-2. assignment statement
-3. augmented assignment statement
-4. annotated assignemnt statement
-5. pass statement
+2. pass statement
 6. del statement
 7. return statement
 8. yield statement

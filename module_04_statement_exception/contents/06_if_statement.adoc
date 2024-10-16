@@ -1,0 +1,80 @@
+= if Statement (if 문)
+
+* 조건문의 결과에 따라 블록의 실행 여부를 결정
++
+[source, python]
+----
+if _boolean expression_:
+    첫 번째 문
+else:
+    두 번째 문
+----
++
+* 정수 값을 사용할 수 있음
++
+[source, python]
+----
+x = 1
+if x:
+    print(True)
+----
++
+* 선택적으로 else와 결합될 수 있음
++
+[source, python]
+----
+x = 0
+if x:
+    print(True)
+else:
+    print(False)
+----
+
+---
+
+if 문은 boolean 식을 평가하여 따라야 할 작업 과정을 결정합니다. boolean 식이 true 로 계산되면 첫 번째 문으로 제어가 이동하며, boolean 식이 False 로 계산되고 else 절이 있으면 두 번째 식으로 이동합니다. boolean 식이 false 로 평가되고 else 절이 없으면 if 문을 건너 뜁니다.
+
+== 예제
+
+아래와 같이 간단한 if 문에 포함된 statement를 작성할 수 있습니다.
+
+[source, python]
+----
+if number % 2 == 0: print("Even")
+else: print("Odd")
+----
+
+포함된 statement가 단일 행일 경우 블록을 지정하는 것이 필요하지 않지만 오류가 적고 읽기 쉬운 코드를 작성하기 위해 블록을 지정하는 것이 좋습니다.
+
+[source, python]
+----
+if number % 2 == 0: 
+    print("Even")
+else: 
+    print("Odd")
+----
+
+== 정수 값을 사용할 수 있음
+
+Python에서는 int 타입이 bool 타입으로 변환될 수 있습니다. 0이면 False, 1이면 True로 변환됩니다. Python에서는 C 또는 C++ 언어에서 처럼 if 문의 조건으로 int를 사용할 수 있습니다. Python에서는 0이면 False, 0이 아니면 True로 변환됩니다.
+
+[source, python]
+----
+x = 0
+if x:
+    print("x means True")
+else:
+    print("x means False")
+----
+
+== Pass 사용
+
+if statement에 해당하지만 아무런 동작을 하지 않아야 하는 경우 pass statement를 사용할 수 있습니다.
+
+[source, python]
+----
+if number % 2 == 0: 
+    print("Even")
+else: 
+    pass
+----

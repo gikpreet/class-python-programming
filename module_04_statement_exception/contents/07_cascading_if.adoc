@@ -2,18 +2,73 @@
 
 * 단일 if 문에서 원하는 만큼의 분기를 가지는 계단식(Cascading) if 문을 처리
 * elif 사용
-+
+
 [source, python]
 ----
-x = int(input("Please enter an integer: "))
-Please enter an integer: 42
-if x < 0:
-    x = 0
-    print('Negative changed to zero')
-elif x == 0:
-    print('Zero')
-elif x == 1:
-    print('Single')
+month_number = 2
+days_in_month = 0
+
+if month_number == 2:
+    days_in_month = 28
+elif month_number == 4:
+    days_in_month = 30
+elif month_number == 6:
+    days_in_month = 30
+elif month_number == 9:
+    days_in_month = 30
+elif month_number == 11:
+    days_in_month = 30
 else:
-    print('More')
+    days_in_month = 31
+----
+
+---
+
+elif 문을 사용하여 단일 if 문에서 원하는 만큼의 분기를 가지는 계단식(Cascading) if 문을 처리할 수 있습니다.
+
+하나의 if 문은 단일 분기 지점을 가집니다. 따라서, 아래와 같이 작성한 두 if 문은 if 조건문의 결과와 상관없이 모두 실행됩니다.
+
+[source, python]
+----
+if monthNumber == 1
+    daysInMonth = 31
+
+if monthNumber == 2
+    daysInMonth = 28
+----
+
+Cascading if 문은 하나의 문으로 동작합니다. 아래와 같이 elif 로 이어진 Cascading if 문은 monthNumber 변수의 값에 따라 하나의 if 문 블록만이 실행됩니다. Cascading if 문에 의해 제어되는 문은 상호 배타적이므로 elif 문 집합 전체에서 하나의 문만 실행됩니다.
+
+[source, python]
+----
+month_number = 2
+days_in_month = 0
+
+if month_number == 2:
+    days_in_month = 28
+elif month_number == 4:
+    days_in_month = 30
+elif month_number == 6:
+    days_in_month = 30
+elif month_number == 9:
+    days_in_month = 30
+elif month_number == 11:
+    days_in_month = 30
+else:
+    days_in_month = 31
+----
+
+== 중첩 if
+
+if statement는 if statement를 사용할 수 있습니다.
+
+[source, python]
+----
+percent = 60
+
+if (percent >= 0 and percent <= 100):
+    if percent > 50:
+        print("Pass")
+else:
+    print("Out of range")
 ----

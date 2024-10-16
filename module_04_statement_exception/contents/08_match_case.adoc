@@ -1,1 +1,86 @@
 = match-case statement (match-case 문)
+
+* 여러 경우에 대응해야 하는 경우를 위해 match-case 문을 사용
+* Python 3.10에서 추가됨
+
+[source, python]
+----
+month_number = 13
+days_in_month = 0
+
+flag = month_number in range(1, 13)
+match month_number:
+    case 2  if flag:
+        days_in_month = 28
+    case 4 | 6 | 9 | 11  if flag:
+        days_in_month = 30
+    case default if flag:
+        days_in_month = 31
+----
+
+---
+
+`match-case` statement은 중첩 if 가 필요한 복잡한 조건을 쉽고 깔끔하게 처리할 수 있는 방법을 제공합니다. 여러 case 블록으로 구성되며, 각 블록은 고유한 상수와 연관된 case 레이블에 따라 분기되어 처리됩니다.
+
+== match-case 문 실행
+
+match-case문은 아래와 같이 실행됩니다.
+
+1. match 문의 expression이 평가되고 값을 얻습니다. expression에 쉼표가 있으면 tuple이 구성됩니다.
+2. 평가된 값이 각 case문의 패턴과 일치하는지 확인합니다. 
+3. 확인에 성공하면 해당 case문에 Guard가 있는지 확인하고 평가합니다. 
+a. Guard가 True로 평가되거나 없는 경우, 해당 case 블록이 실행됩니다.
+b. 그렇지 않으면 다음 case문의 패턴 일치 여부를 평가합니다.
+c. 추가 case 블록이 없으면 match 문이 완료됩니다.
+
+== Guard
+
+case 블록이 실행되며면 if로 구성된 guard를 반드시 통과해야 합니다. case 블록의 논리적 흐름은 아래와 같이 guard와 함께 동작합니다:
+
+1. case 문과 패턴의 일치가 확인되었는지 체크합니다. 만약 실패하면, guard는 평가되지 않고 다음 case 블록으로 이동합니다.
+2. 일치가 확인되면, guard를 평가합니다.
+a. guard가 True로 계산되면, case 블록이 선택됩니다.
+b. guard가 False로 계산되면, case 블록이 선택되지 않습니다.
+c. guard를 평가하다가 예외가 발생하면, 예외 처리 규칙에 따릅니다.
+
+== 패턴
+
+match의 expression에서 계산된 값은 case의 pattern과 일치여부를 확인하게 됩니다. Python에서는 아래와 같은 패턴들을 사용할 수 있습니다.
+
+* OR 패턴
+* AS 패턴
+* 리터럴 패턴
+* Capture 패턴
+* Wildcard 패턴
+* Value 패턴
+* Group 패턴
+* Sequence 패턴
+* Mapping 패턴
+* Class 패턴
+
+상세한 내용은 link:https://docs.python.org/3.13/reference/compound_stmts.html#patterns[Python Language Reference]를 참조하세요.
+
+//// 
+*OR 패턴** +
+`\|` 로 구분된 두 개 이상의 패턴을 의미합니다. `\|` 로 구분된 값들 중 하나와 일치하는지 확인합니다.
+
+**AS 패턴**
+as 키워드 왼쪽의 OR 패턴을 as 키워드 오른쪽의 패턴과 매치합니다.
+
+**리터럴 패턴**
+
+**Capture 패턴**
+
+**Wildcard 패턴**
+wildcard 문자로 `_` 를 사용합니다.
+
+**Value 패턴**
+
+**Group 패턴**
+
+**Sequence 패턴**
+
+**Mapping 패턴**
+
+**Class 패턴**
+////

@@ -51,6 +51,34 @@ Immutable 타입은 key로 사용할 수 있으며, 모든 type을 value로 사�
 dictionary = {(1, "celine"): "Computer Science", "subjects": ["OS", "DB", "Python"]}
 ----
 
+== 디스플레이(displey)
+
+list, set, dictionary를 구성하기 위해, Python은 디스플레이(display)라고 부르는 특별한 문법을 가지고 있습니다. 디스플레이는 두 가지 스타일로 제공됩니다.
+
+* list, set, dictionary 등 컨테이너의 내용을 명시적으로 나열 - list 생성
+* 일련의 반복과 필터링 지시들을 통해 계산. 이를 Comprehenssion이라고 부름
+
+Comprehenssion의 공통 문법 요소는 아래와 같습니다.
+
+----
+comprehension ::=  assignment_expression comp_for
+comp_for      ::=  ["async"] "for" target_list "in" or_test [comp_iter]
+comp_iter     ::=  comp_for | comp_if
+comp_if       ::=  "if" or_test [comp_iter]
+----
+
+아래와 같은 Comprehenssion으로 리스트를 생성할 수 있습니다.
+
+[source, python]
+----
+dic = {x:y for x,y in zip(range(5), range(10, 15))}
+print(dic)
+----
+
+----
+{0: 10, 1: 11, 2: 12, 3: 13, 4: 14}
+----
+
 == key를 사용해 dictionary 읽기
 
 dictionary의 요소들은 key를 인덱스로 사용해서 읽을 수 있습니다. dictionary의 요소는 key를 이용해서만 값을 읽을 수 있으므로, 슬라이싱은 사용할 수 없습니다.
