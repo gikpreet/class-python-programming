@@ -1,8 +1,0 @@
-= Iteration statement (반복문)
-
-while, for 및 foreach 문은 반복문으로 분류되며, 반복문은 특정 조건이 true 인 동안 작업을 수행합니다. 이 단원에서는 Java에서 지원하는 반복문을 배웁니다.
-
-== Table of Contents
-
-1. while statement
-2. for statement

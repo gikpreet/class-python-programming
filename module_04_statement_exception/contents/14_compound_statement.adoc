@@ -4,4 +4,7 @@ Compound statement(복합문) 여러 라인으로 구성될 수 있는 statement
 
 == Table of Contents
 
-1. 
+1. if statement
+2. cascading statement
+3. match-case statement
+4. 
