@@ -1,1 +1,37 @@
 = for statement (for 문)
+
+* 반복되는 변수의 이름을 선택
+* Sequence 객체 또는 다른 Iterable 객체(generator, range 등)의 요소들을 반복
+
+[source, python]
+----
+for i in range(10):
+    print(i)
+
+lst = [0,1,2,3,4,5,6,7,8,9]
+for i in lst:
+    print(i)
+----
+
+---
+
+Python의 for 문은 Sequece 객체 또는 generator, range등의 Iterable 객체의 각 요소에 대해 포함된 statement를 실행합니다. 이를 위해서는 반복을 수행할 변수와 요소가 포함된 객체만 필요할 뿐 다른 구성요소는 필요하지 않습니다. 
+
+== 예제
+
+아래 코드는 for 문을 사용하여 1에서 10까지의 숫자를 출력합니다.
+
+[source, python]
+----
+for i in range(1, 11):
+    print(i)
+----
+
+아래 코드는 for문을 사용하여 구구단을 출력합니다.
+
+[source, python]
+----
+for i in range(2, 10):
+    for j in range(1, 10):
+        print(i, "*", j, "=", i * j)
+----
