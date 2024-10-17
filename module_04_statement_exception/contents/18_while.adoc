@@ -1,4 +1,4 @@
-= While statemnt(while 문)
+= while statemnt(while 문)
 
 * boolean 값을 기준으로 내부 문을 수행
 * 반복이 시작될 때 boolean 식을 평가, boolean 값이 true일 때 내부 문 실행

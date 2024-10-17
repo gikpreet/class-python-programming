@@ -1,0 +1,79 @@
+= 다중 except 블록
+
+* 각 블록은 하나의 예외 클래스를 잡아냄
+
+[source, python]
+----
+import sys
+
+try:
+    name = sys.argv[1]
+    print("Hello, " + name)
+    i = int(name)
+except IndexError:
+    print("Usage: python Program.py <file name>")
+except ValueError:
+    print("Usage: Value not valid")
+----
+
+---
+
+try 블록 내부의 각 문은 하나 이상의 예외를 일으킬 수 있습니다. Python은 발생하는 상황에 따른 다양한 예외 클래스를 지원하므로 각각 특정 종류의 예외를 처리하는 많은 except 블록을 작성하는 것이 허용됩니다.
+
+예외는 해당 예외 타입에만 적용되어 except 됩니다. Python 런타임은 해당 유형의 except 블록에서 특정 유형의 예외 개체를 자동으로 잡아냅니다.
+
+[source, python]
+----
+1:  import sys
+2:
+3:  try:
+4:      i = int(sys.argv[1])
+5:      j = int(sys.argv[2])
+6:      k = i / j
+7:      print(k)
+9:  except IndexError:
+10:     print("Usage: python Program.py <integer> <integer>")
+11: except ValueError:
+12:     print("Usage: python Program.py <integer> <integer>")
+13: except ArithmeticError:
+14      print("Can't divide by zero")
+15:
+----
+
+위 코드에서 네 번째 줄의 코드는 여러 오류를 일으킬 가능성이 있습니다. Python 프로그램이 실행될 때 파라미터가 전달되지 않을 수도 있고 파라미터로 전달되어도 정수형으로 변환이 불가능한 문자가 입력될 수 있습니다.
+
+Python 프로그래밍 언어에서 매개 변수가 전달되지 않은 채 네 번째 라인(또는 다섯 번째 라인)이 실행되면 런타임은 argv에 존재하지 않는 항목에 접근했다고 간주하고 IndexError 일으킵니다. 또한, 매개 변수가 전달되었으나 정수형으로 변환할 수 없는 값이 전달되면 ValueError가 발생합니다. 또한 여섯 번째 라인에서 j의 값으로 0이 전달되면 ArithmeticError가 발생합니다.
+
+만약 프로그램이 실행될 때 적당한 매개변수가 전달되어 try 블록 내에서 예외가 발생하지 않았다면 try 블록의 끝에 도달하고 except 문을 건너뛰어 15번째 라인으로 이동합니다. try-except 문에서 제어 흐름은 예외가 발생한 경우에만 except 문에 진입합니다.
+
+제어 흐름이 적절한 except 문을 찾지 못하면 현재 실행을 종료하고 실행이 호출된 문에서 검색을 다시 시작합니다. 검색을 계속하여, 필요한 경우 호출 스택을 주 스레드로 이동합니다. 이와 같은 방식으로 풀어나가는 과정에서 스레드가 종료되면 프로세스가 구현된 방식으로 종료됩니다.
+
+== except 블록
+
+Python에서 예외는 BaseException 클래스의 자식 클래스입니다. 따라서 except 절에서 BaseException 을 처리하도록 코드를 작성하면 try 문에서 발생할 수 있는 모든 예외를 처리할 수 있습니다.
+
+[source, python]
+----
+except BaseException :
+    ...
+----
+
+java와 달리 만약 BaseException 을 처리하도록 코드를 했다 해도 다른 예외를 처리하는 코드를 작성할 수 있습니다. 아래 코드는 정상적으로 실행되지만, IndexError는 처리되지 않습니다.
+
+[source, python]
+----
+except BaseException:
+    print("Usage: python Program.py <integer> <integer>")
+except IndexError:
+    print("Usage: python Program.py <file name>")   # 처리되지 않음
+----
+
+IndexError 처리 코드를 먼저 작성했고, 발생한 예외가 IndexError이면 IndexError를 처리합니다. IndexError가 아닌 다른 예외가 발생하면 BaseException이 처리 됩니다.
+
+[source, python]
+----
+except IndexError:
+    print("Usage: python Program.py <file name>")   # 처리되지 않음
+except BaseException:
+    print("Usage: python Program.py <integer> <integer>")
+----

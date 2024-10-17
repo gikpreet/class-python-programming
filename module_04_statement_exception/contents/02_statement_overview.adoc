@@ -5,4 +5,3 @@
 == Table of Contents
 
 1. Statement Block (문 블록)
-2. Statement Type (문 유형)

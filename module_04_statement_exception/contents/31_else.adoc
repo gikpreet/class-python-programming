@@ -1,0 +1,56 @@
+= else statement
+
+* 예외가 발생하지 않을 때 실행됨
+* except statement 블록의 코드가 실행되지 않았을 때 실행되는 블록
+
+[source, python]
+----
+import sys
+
+try:
+    i = int(sys.argv[1])
+    j = int(sys.argv[2])
+    k = i / j
+except IndexError:
+    print("Usage: python Program.py <arg1> <arg2")
+except ZeroDivisionError:
+    print("can't divide by zero")
+else:
+    print(k)
+
+----
+
+---
+
+예외 처리의 기본은 try와 except에 else를 추가해서 예외를 처리할 수 있습니다. else statement가 예외 처리에 사용되면 예외가 발생되지 않아 except statement 블록을 실행하지 않았을 경우 실행됩니다.
+
+[source, python]
+----
+import sys
+
+try:
+    i = int(sys.argv[1])
+    j = int(sys.argv[2])
+    k = i / j
+except IndexError:
+    print("Usage: python Program.py <arg1> <arg2")
+except ZeroDivisionError:
+    print("can't divide by zero")
+else:
+    print(k)
+
+----
+
+위 코드의 try 블록에서 아무런 예외가 발생하지 않는다면 else 블록의 코드가 실행됩니다. 위 프로그램을 아래와 같이 실행하면 ZeroDivisionError가 발생합니다.
+
+----
+$ python program.py 2 0
+can't divide by zero
+----
+
+아래와 같이 실행하여 예외가 발생하지 않으면 else 블록의 코드가 실행됩니다.
+
+----
+$ python program.py 4 2
+2.0
+----
