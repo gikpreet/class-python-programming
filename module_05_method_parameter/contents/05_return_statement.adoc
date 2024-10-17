@@ -1,0 +1,58 @@
+= return statement (return 문)
+
+* return에는 두 가지 뜻이 있음. "귀환"과 "반환"
+* Expression 목록 또는 None을 값으로 가지고 함수를 호출한 곳으로 돌아감
+* return 문을 만나면 함수는 즉시 종료되고, 뒤의 코드는 실행되지 않음
+* 조건문에서 return 할 수 있음
+
+[source, python]
+----
+def my_function():
+    number = 0
+    # ...
+    print("Hello")
+    if number < 10:
+        return
+    print("World!")
+----
+
+---
+
+return 문을 사용하여 함수가 호출자에게 즉시 돌아가도록 할 수 있습니다. 함수에 return문이 없으면 일반적으로 실행이 메소드의 마지막에 도달하면 호출자로 돌아갑니다.
+
+== return
+
+기본적으로, 함수는 코드 블록의 마지막에 도달하면 호출자에게 돌아갑니다. 함수가 호출자에게 즉시 돌아가도록 하려면 return 문을 사용합니다.
+
+아래의 코드는 Hello를 출력한 후 호출자에게 돌아갑니다. 아래 코드에서 World를 출력하는 코드는 실행되지 않습니다. Python은 Java, C#등의 언어와 달리 도달할 수 없는 코드가 있어도 오류가 발생되지 않습니다.
+
+[source, python]
+----
+def my_function():
+    print("Hello")
+    return
+    print("World!")
+
+if __name__ == "__main__":
+    my_function()
+----
+
+== 조건문에서 return
+
+if 또는 match-case 등의 조건문에서 return을 사용하는 것이 일반적이고 유용합니다. 조건문에서 return을 사용하면 주어진 조건에 따라 함수가 호출자에게 돌아가도록 할 수 있으며, 주어진 조건에 따라 다른 값을 호출자에게 반환할 수 있습니다.
+
+아래 코드는 변수의 값이 10보다 작은 즉시 return하며, 그렇지 않을 경우 World!를 출력합니다.
+
+[source, python]
+----
+def my_function():
+    i = 10
+    print("Hello")
+    if i < 10:
+        return
+    print("World!")
+----
+
+== 값 반환
+
+함수에 return이 지정되지 않으면 None을 반환합니다.

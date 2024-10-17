@@ -1,0 +1,59 @@
+= 함수 호출
+
+* 선언한 메소드의 사용
+** 같은 클래스 내에서 메소드 호출
+*** 메소드 이름 뒤의 괄호에 하나 이상의 파라미터를 사용
+** 다른 클래스에 있는 메소드 호출
+*** 호출할 메소드가 있는 클래스를 표시
+*** 호출되는 메소드는 private으로 선언되면 안됨
+** 중첩 호출
+*** 메소드는 다른 메소드를 호출할 수 있고, 다른 메소드를 호출하는 메소드를 호출할 수 있음
+
+---
+
+정의한 함수는 도달 가능한 모든 곳에서 호출할 수 있습니다.
+
+== 함수 호출
+
+함수를 호출하려면 호출할 함수가 정의한 파라미터에 대입될 변수 또는 expression을 파라미터로 사용합니다. 메소드에 파라미터가 없는 경우에는 빈 괄호를 써야합니다.
+
+[source, python]
+----
+my_function()
+----
+
+아래 예제에서 프로그램은 call 함수에서 시작합니다. call 함수의 첫 번째 statement는 "The program is starting"을 출력하고, 두 번쨰 statement에서 my_function을 호출합니다. 제어 흐름은 my_function으로 이동하고, my_function 함수는 "My Function"을 출력합니다. my_function 함수가 종료되면 제어는 call 함수의 다음 statement로 이동하고 "The program is ending"을 출력합니다.
+
+[source, python]
+----
+def my_function():
+    print("My Function")
+
+def call():
+    print("The program is starting")
+    my_function()
+    print("The program is ending")
+
+if __name__ == "__main__":
+    call()
+----
+
+== 중첩 호출
+
+함수 내에서 함수를 호출할 수 있습니다.
+
+[source, python]
+----
+def method1():
+    print("method 1")
+
+def method2():
+    method1()
+    print("method 2")
+
+if __name__ == "__main__":
+    method2()
+    method1()
+----
+
+Python에서는 메소드를 중첩하여 무제한으로 호출할 수 있습니다. 중첩 수준에는 제한이 없지만, 런타임 환경에서는 일반적으로 프로세스를 실행하는데 사용하는 메모리(RAM)가 제한되어 있습니다. 중첩된 메소드를 호출할 때 메모리가 부족하다면 프로그램 디자인을 다시 살펴볼 필요가 있습니다.
