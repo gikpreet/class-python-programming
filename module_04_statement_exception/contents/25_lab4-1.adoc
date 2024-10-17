@@ -1,0 +1,40 @@
+= Lab 4-1: 연도 일자를 월/일로 계산
+
+== 연습 2. 12개의 if 문을 foreach 문을 사용하여 수정
+
+1. 12개의 if 문을 하나의 for 문으로 변경합니다. for 문은 미리 준비된 days_in_month 리스트를 이용해서 반복합니다. 이를 위해 12개의 if 문을 주석처리하거나 삭제합니다.
+2. days_in_month 컬렉션에 포함된 정수 값을 반복하는 for 문을 작성합니다.
++
+[source, python]
+----
+for days in days_in_month:
+    ...
+----
++
+3. for 문에 블록을 작성하여 문을 추가합니다. 이 블록의 내용은 다양한 정수 리터럴 대신 `days` 변수가 사용된다는 점을 제외하면 주석 처리(또는 삭제)된 if 문과 비슷합니다.
+4. 작성된 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+days_in_month  = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+month_names = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "Sepetember", "October", "November", "December"]
+
+day_num = int(input("1 에서 365 사이의 숫자를 입력하세요: "))
+month_num = 0
+
+for days in days_in_month:
+    if day_num <= days:
+        break
+    else:
+        day_num -= days
+        month_num += 1
+
+month_name = month_names[month_num]
+
+print(f"{day_num}, {month_name}")
+
+----
++
+5. 작업을 저장합니다.
+6. Whatday.py 실행합니다. 코드가 줄었지만 프로그램은 동일하게 동작하는 것을 확인합니다.
+7. 1보다 작거나 365보다 큰 숫자를 입력하면 어떤 오류가 발생하는지 확인합니다.
