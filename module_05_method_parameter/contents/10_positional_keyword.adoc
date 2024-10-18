@@ -1,0 +1,69 @@
+= positional argument와 keyword argument
+
+* 호출자에서 파라미터의 위치 또는 파라미터의 이름을 사용
+** 파라미터의 이름을 사용하여 인자 전달: keyword parameter
+** 파라미터의 위치(순서)를 사용하여 인자 전달: positional parameter
+* positional parameter는 keyword parameter의 뒤에 올 수 없음
+
+[source, python]
+----
+def my_function(a, b):
+    ...
+
+my_function(1, 2)
+my_function(a=1, b=2)
+----
+
+---
+
+Python은 C, Java등의 언어와 달리 파라미터의 이름으로 인자를 전달할 수 있습니다. 이 관점에서 Python에서는 호출자 관점에서 두 가지 방법으로 함수 호출시 파라미터를 전달할 수 있습니다.
+
+* positional argument +
+호출자에서 파라미터의 위치를 기준으로 argument를 전달합니다.
+* keyword argument +
+호출자에서 파라미터의 이름으로 argument를 전달합니다.
+
+아래와 같은 함수가 있으면,
+
+[source, python]
+----
+def my_function(a, b, c):
+----
+
+두 가지 방법으로 파라미터를 전달할 수 있습니다. 아래와 같이 파라미터의 순서(positional argument)대로 전달할 수 있습니다.
+
+[source, python]
+----
+my_function(1, 2, 3)
+----
+
+또는 파라미터의 이름으로 전달할 수 있습니다. 이 경우 순서는 중요하지 않습니다.
+
+[source, python]
+----
+my_function(c=1, a=2, b=3)
+----
+
+함수 선언시 `/`, `*` 기호를 사용하여 호출시 keyword argument 또는 positional argument를 써야할 위치를 강제할 수 있습니다. 이는 Python 3 버전에서 부터 사용할 수 있습니다.
+
+* `/` - `/` 의 앞쪽(왼쪽)에는 positional argument 만 올수 있다.
+* `\*` - `*` 의 뒷쪽(오른쪽)에는 keyword argument 만 올수 있다.
+* `/` 와 `*` 사이에는 positional argument 와 keyword argument 의 구분 없이 아무 형태나 올수 있다.
+
+아래와 같이 선언된 함수가 있을 때,
+
+[source, python]
+----
+def my_function(a, /, b, *, c):
+----
+
+아래와 같은 규칙을 가집니다.
+
+[source, python]
+----
+foo(1, 2, 3)       # error. 세번째 인자는 keyword argument가 와야 한다.
+foo(a=1, b=2, c=3) # error. 첫번째 인자는 positioal argument가 와야 한다.
+foo(1, 2, c=3)     # ok
+foo(1, b=2, c=3)   # ok
+foo(1, b=2, c=3)   # error. 세번째 인자는 keyword argument가 와야 한다.
+----

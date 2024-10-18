@@ -1,0 +1,177 @@
+= packing, unpacking parameter
+
+* Packing 변수를 파라미터로 사용할 수 있음
+
+[source, python]
+----
+def my_function(a, *b):
+    ...
+
+my_function(1,2,3,4,5)
+----
+
+---
+
+== parameter 패킹
+
+파이썬에서 파라미터 패킹(parameter packing)이란 고정되지 않은 여러개의 인자를 하나의 시퀀스 객체로 묶어 함수에게 전달하는 것을 말합니다. 한 마디로 말하면 
+
+> 고정되지 않은 여러개의 파라미터를 묶은 하나의 시퀀스 파라미터
+
+를 말합니다. Python에서는 변수를 패킹 변수로 선언할 수 있고, 함수의 파라미터로 선언할 수 있습니다. 이는 Java와 C#의 가변길이 파라미터와 유사합니다. 변수로 선언한 패킹 파라미터는 list로 처리되고, 함수의 패킹 파라미터는 tuple로 선언됩니다.
+
+== positional argument 패킹
+
+함수의 인자를 전달하는 방법에는 위치(순서) 기반으로 인자를 전달하는 positional argument와 키워드 기반으로 전달하는 keyword argument방법이 있습니다. 함수 파라미터로 패킹 변수를 사용하면(즉, 파라미터 이름앞에 * 기호 사용하면) 위치 기반의 모든 변수들을 하나의 튜플 객체로 만들어 전달하는 positional argument 패킹을 사용하겠다는 의미가 됩니다.
+
+아래와 같이 함수의 마지막 파라미터로 패킹 변수를 사용하고 argument로 1,2,3,4,5 다섯 개의 정수를 패스하면,
+
+[source, python]
+----
+def my_function(a, *b):
+    print(a, type(a))
+    print(b, type(b))
+
+my_function(1,2,3,4,5)
+----
+
+아래와 같이 첫 번째 argument는 a 파라미터에 전달되고, 그 뒤의 argument는 b 변수에 tuple 타입으로 패킹됩니다.
+
+----
+1 <class 'int'>
+(2, 3, 4, 5) <class 'tuple'>
+----
+
+함수의 첫 번째 파라미터로 패킹 변수를 사용하면, 첫 번째 파라미터 다음에 선언된 파라미터는 keyword parameter로 동작합니다. 아래 함수는 첫 번째 파라미터로 패킹 변수를 사용하고, 그 외 2개의 파라미터를 가지고 있습니다.
+
+[source, python]
+----
+def my_function(*a, b, c):
+    print(a, type(a))
+    print(b, type(b))
+    print(c, type(c))
+----
+
+아래와 같이 argument를 전달하면 오류가 발생합니다.
+
+[source, python]
+----
+my_function(1,2,3,4,5)
+----
+
+----
+Traceback (most recent call last):
+  File "C:\Code\Test.py", line 6, in <module>
+    my_function(1,2,3,4,5)
+TypeError: my_function() missing 2 required keyword-only arguments: 'b' and 'c'
+----
+
+이 경우, b와 c 파라미터에 인자를 전달할 때는 keyword parameter 형태로 전달해야 합니다.
+
+[source, python]
+----
+my_function(1,2,3, b=4,c=5)
+----
+
+----
+(1, 2, 3) <class 'tuple'>
+4 <class 'int'>
+5 <class 'int'>
+----
+
+함수 파라미터에 값을 전달 할 때, keyword parameter 전달 뒤에는 position parameter 전달 방식을 사용할 수 없습니다.
+
+== Keyword argument 패킹
+
+함수에 *를 사용하면 함수에 전달되는 argument의 개수에 상관없이 하나의 투플로 묶어주는 패킹을 사용할 수 있습니다. Python에서는 이 방법 이외에 전달되는 파라미터에 keyword를 붙여서 전달 받을 수 있는 keyword argument 패킹 또한 사용할 수 있습니다.
+
+Python에서는 파라미터에 keyword를 붙여서 값을 전달 할 수 있는 Keyword argument를 사용할 수 있는데, 패킹에서는 전달되는 파라미터에 keyword를 붙일 수 없습니다. 이런 경우 두 개의 asterisk(**)를 사용하는 Keyword argument 패킹을 사용할 수 있습니다.
+
+아래 함수는 패킹을 사용하여 전달된 인자들을 tuple 형태로 언패킹합니다.
+
+[source, python]
+----
+def my_function(a, *b):
+    print(a, type(a))
+    print(b, type(b))
+----
+
+이 함수를 아래와 같이 호출하면,
+
+[source, python]
+----
+my_function(1,2,3,4)
+----
+
+1은 a변수에, 2,3,4는 패킹되어 b 변수로 전달됩니다.
+
+----
+1 <class 'int'>
+(2, 3, 4) <class 'tuple'>
+----
+
+tuple로 패킹되어 전달받은 값들에는 keyword를 지정할 수 없습니다. 패킹해서 값을 전달받을 때 각 값에 keyword가 붙어있는 형태로 받고싶다면, keyword packing을 사용할 수 있습니다.
+
+아래와 같이 b 변수를 keyword packing 파라미터로 선언합니다.
+
+[source, python]
+----
+def my_function(a, **b):
+    print(a, type(a))
+    print(b, type(b))
+----
+
+b 변수에 값을 전달할 때는 key:value 형태로 전달합니다. key:value 형태의 값에 대한 개수는 제한되지 않으며, dictionary(dict 타입 객체)로 패킹됩니다.
+
+[source, python]
+----
+my_function(1,c=2,d=3,f=4)
+----
+
+----
+1 <class 'int'>
+{'c': 2, 'd': 3, 'f': 4} <class 'dict'>
+----
+
+keyword argument 패킹로 전달된 값은 dictionary 타입이고, dictionary 타입 요소의 key를 사용해서 마치 keyword parameter를 사용한 것 처럼 값을 읽을 수 있습니다.
+
+[source, python]
+----
+def my_function(**kwargs):
+    print(kwargs['b'])
+
+my_function(a=2,b=3,c=4)
+----
+
+----
+3
+----
+
+positional argument 패킹과 keyword argument 패킹을 같이 사용할 수 있습니다.
+
+[source, python]
+----
+def my_function(a, *b, **c):
+    print(a, type(a))
+    print(b, type(b))
+    print(c, type(c))
+----
+
+my_function 파라미터는 positional argument 이고, 두 번째 파라미터는 positional argument 패킹 파라미터입니다. 세 번째 파라미터는 key:value 형태의 값을 전달받는 keyword argument 패킹 파라미터입니다. 
+
+아래와 같이 호출하면, 첫 번째 파라미터(1)은 positional argument인 `a` 파라미터에, 두번째와 세번째 파라미터(2,3)은 positional argument 파라미터인 b 파라미터에, 네 번째와 다섯 번째 파라미터(e=4, f-5)는 keyword argument 파라미터인 kwargs에 전달됩니다.
+
+----
+my_function(1,2,3,e=4,f=5)
+----
+
+----
+1 <class 'int'>
+(2, 3) <class 'tuple'>
+{'e': 4, 'f': 5} <class 'dict'>
+----
+
+
+
+
+https://kukuta.tistory.com/316

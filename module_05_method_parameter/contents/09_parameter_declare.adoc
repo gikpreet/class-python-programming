@@ -12,10 +12,10 @@
 
 [source, python]
 ----
-def my_function(i, name, *args, **kwargs):
+def my_function(i, , name, *args, **kwargs):
     ...
 
-my_function(1, 1,2,3,4,a=1, name="celine")
+my_function(1, "celine", 1,2,3,4, a=1)
 ----
 
 ---
@@ -24,8 +24,20 @@ my_function(1, 1,2,3,4,a=1, name="celine")
 
 == 파라미터 정의
 
+각 파라미터는 타입과 이름을 가집니다. 함수 이름 다음에 오는 괄호안에 파라미터를 선언합니다. 파라미터를 선언하는데 사용되는 구문은 각 파라미터를 구분하는 구분자로 쉼표( , )를 사용한다는 점을 제외하고는 지역 변수를 선언하는데 사용하는 구문과 동일하지만, positional argument, keyword argument등의 선언 방법에서 약간의 차이가 있습니다.
 
+[source, python]
+----
+def my_function(i, /, name, *, age):
+    ...
+----
 
 == 파라미터 전달
 
-https://kukuta.tistory.com/316
+파라미터가 정의된 메소드를 호출하는 코드는 반드시 파라미터에 인자를 제공해야 합니다. 다음 코드는 파라미터를 사용하여 메소드를 호출하는 방법에 대한 두 가지 예를 보여줍니다. 두 경우 모두 my_function 메소드의 i, name, age 파라미터와 대응하여 배치됩니다.
+
+[source, python]
+----
+my_function(1, "celine", age=21)
+my_function(1, name="celine", age=21)
+----

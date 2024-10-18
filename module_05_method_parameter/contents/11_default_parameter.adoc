@@ -1,0 +1,35 @@
+== default parameter
+
+* 파라미터가 기본값을 가질 수 있음
+* 기본 값을 가진 파라미터에는 값을 전달하지 않을 경우 기본값이 사용됨
+* 기본 값을 가진 파라미터에는 값을 전달하면 전달한 값이 사용됨
+
+[source, python]
+----
+def my_function(a, b=2):
+    ...
+
+my_function(1)
+my_function(1, 2)
+----
+
+---
+
+Python에서는 기본값 파라미터(default parameter)를 사용할 수 있습니다. 기본값 파라미터는 기본 값이 지정된 파라미터를 의미하고, 함수 호출시 생략할 수 있습니다. 이 경우 기본 값이 사용됩니다.
+
+아래와 같이 선언된 함수가 있을 때,
+
+[source, python]
+----
+def my_function(a, b=0, c=None) :
+    print(a, b, c)
+----
+
+아래와 같이 사용할 수 있습니다.
+
+[source, python]
+----
+my_function(1, 2, 3)    # (1, 2, 3)
+my_function(1, 2)       # (1, 2, None)
+my_function(1)          # (1, 0, None)
+----
