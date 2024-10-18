@@ -1,0 +1,9 @@
+= Pass by Assignment
+
+* 불변형 객체(Immutable)가 함수의 argument로 전달되면 pass by value처럼 동작
+* 가변형 객체(Mutable)가 함수의 argument로 전달되면 pass by reference처럼 동작
+* Python에서는 값이 '할당' 되면 메모리에 새 객체가 생성됨
+
+---
+
+https://sylagape1231.tistory.com/45
