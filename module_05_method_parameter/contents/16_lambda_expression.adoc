@@ -13,3 +13,142 @@ print(x(1, 2))
 ---
 
 lambda expression은 파라미터를 받아 짧은 코드 블록을 수행하고 필요에 따라 값을 return하는 표현 방법입니다. 함수와 유사하지만 이름을 갖지 않으며, expression을 사용할 수 있는 모든 곳에서 구현 가능합니다.
+
+lambda expression의 기본 표현은 아래와 같습니다.
+
+[source, python]
+----
+lambda parameters : return expression
+----
+
+아래 lambda expression은 세 파라미터를 받아 list로 만들어 리턴합니다.
+
+[source, python]
+----
+x = lambda a, b, c: [a, b, c]
+----
+
+x 객체는 아래와 같은 함수 타입으로 선언됩니다.
+
+----
+<function __main__.<lambda>(a, b, c)>
+----
+
+아래와 같은 방법으로 호출할 수 있습니다.
+
+[source, python]
+----
+result = x(1,2,3)
+print(result)
+----
+
+----
+[1, 2, 3]
+----
+
+아래와 같이 사용하면 lambda expression을 정의하며 호출합니다.
+
+[source, python]
+----
+(lambda a, b, c: [a, b, c])(2,3,4)
+----
+
+== First-class
+
+First-class는 Python에서 사용되는 여러 기술을 이해하기 위한 가장 기본적인 개념입니다. Python이 fist-class를 지원하기 때문에 함수를 인자로 넘기거나 closer를 사용할 수 있습니다. 
+
+=== First-class citizen
+
+First-class citizen은 흔히 "일급 객체"로 번역됩니다. 프로그래밍 언어에서 first-class citizen 속성을 가진다는 것은 어떤 개체를 다른 개체의 argument로 전달하거나, 함수의 return 값으로 사용하거나, 변수에 값으로 할당할 수 있다는 것을 의미합니다.
+
+Python은 함수가 first-class citizen 속성을 가집니다. 변수에 함수를 할당할 수 있고, 파라미터로 함수를 전달하거나 return 값으로 함수를 사용할 수 있습니다.
+
+아래 코드는 두 파라미터를 더한 값을 return 하는 add 함수를 선언합니다.
+
+[source, python]
+----
+def add(i, j):
+    return i + j
+----
+
+Python에서 함수는 first-class citizen 속성을 가지므로, 변수에 할당할 수 있습니다.
+
+[source, python]
+----
+func = add
+----
+
+위 코드에서 func는 함수이므로, 아래와 같이 사용할 수 있습니다.
+
+[source, python]
+----
+print(func(1, 2))
+----
+
+----
+3
+----
+
+Python의 함수는 first-class function이므로, 함수의 파라미터로 사용될 수 있습니다. 
+
+[source, python]
+----
+def calc(func, start, end):
+    result = 0
+    for i in range(start, end + 1):
+        result = func(result, i)
+    return result
+----
+
+위에서 선언한 calc 함수의 파라미터로 함수를 사용할 수 있습니다.
+
+[source, python]
+----
+calc(add, 1, 10)
+----
+
+lambda expression은 함수이므로, 함수 대신 lambda expression을 사용할 수 있습니다.
+
+[source, python]
+----
+calc(lambda x, y: x + y, 1, 10)
+----
+
+== 예제
+
+Python이 기본으로 제공하는 map 함수는 여러 데이터를 받아서 각각의 요소에 함수를 적용한 결과를 반환하는 내장 함수입니다.
+
+아래와 같은 list가 있고, 하나의 파라미터를 사용하는 map 함수가 있을 때,
+
+[source, python]
+----
+values = [1, 2, 3]
+
+def add(x):
+    return x + 1
+----
+
+map 함수의 인자로 add 함수와 values 리스트를 전달하면 values 리스트의 모든 요소에 add 함수를 적용합니다. 이 결과를 list로 받을 수 있습니다.
+
+[source, python]
+----
+list(map(add, values))
+----
+
+add는 함수므로, lambda expression을 사용할 수 있습니다.
+
+[source, python]
+----
+list(map(lambda x : x + 1, values))
+----
+
+map 함수는 하나의 함수와 여러 iterable을 받아 모든 iterable의 요소에 함수를 적용할 수 있습니다.
+
+[source, python]
+----
+list(map(lambda x, y : x + y, [1, 2, 3], [1.0, 2.0, 3.0]))
+----
+
+----
+[2.0, 4.0, 6.0]
+----
