@@ -4,7 +4,9 @@
 
 == Table of Contents
 
-1.	파라미터 선언과 호출
-2.	파라미터 전달 메커니즘
-3.	Pass by Assignment
-4.	가변 길이 목록 파라미터 사용
+1. 파라미터 선언과 호출
+2. positional argument와 keyword argument
+3. default parameter
+4. packing, unpacking parameter
+5. 파라미터 전달 메커니즘
+6. 

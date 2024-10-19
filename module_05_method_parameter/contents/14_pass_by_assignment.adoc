@@ -1,9 +1,142 @@
 = Pass by Assignment
 
-* 불변형 객체(Immutable)가 함수의 argument로 전달되면 pass by value처럼 동작
-* 가변형 객체(Mutable)가 함수의 argument로 전달되면 pass by reference처럼 동작
+* Pass-object-reference-by-value로 방식으로 값 전달
+* 기본적으로 오브젝트 핸들을 값으로 전달함
 * Python에서는 값이 '할당' 되면 메모리에 새 객체가 생성됨
 
 ---
 
-https://sylagape1231.tistory.com/45
+C언어나 Java 언어의 경우 Calling convention이 비교적 쉽게 설명됩니다. C 언어에서는 모든 할당과 전달은 값이 복사되는 pass-by-value 입니다. Java 역시 pass-by-value 입니다.
+
+|===
+|Java는 pass-by-reference로 간주되기도 합니다. java에서 객체는 reference라고 불리는 오브젝트 핸들을 통해 다루어집니다. 그리고 메소드를 호출할 때는 그 reference를 값으로 넘겨줍니다. Primitive data type인 경우 그 값(stack에 존재하는 값)을 바로 넘겨줍니다.
+|===
+
+Python에서의 데이터 전달은 기본적으로 call by value 입니다. 더 정확히 말하면 pass-object-reference-by-value 입니다. Java와 비슷하게 객체의 reference를 값으로 념겨줍니다. 
+
+id() 함수를 사용하면 메모리 내에서 변수의 고유성을 식별할 수 있습니다. 아래 코드는 a 변수의 고유성 값을 출력합니다.
+
+[source, python]
+----
+a = 1
+print(id(a))
+----
+
+----
+140705479824168
+----
+
+Python은 Java와 다르게 모든 것이 객체입니다. Java 언어에서 처럼 Primitive data type과 객체로 구분되거나, C#에서 처럼 Value type 과 reference 타입으로 나뉘지 않습니다.
+
+Python에서 id() 함수를 이용해서 함수로 값이 어떻게 전달되는지를 체크해보면, Java의 객체나 C#의 reference 타입처럼 동작한다는 것을 알 수 있습니다.
+
+[source, python]
+----
+def func(arg):
+    print(id(arg))
+
+a = 1
+print(id(a))
+func(a)
+print(id(a))
+----
+
+아래와 같이 선언한 변수, 파라미터로 전달 받은 변수, 함수의 파라미터로 전달되어 함수 실행 후의 모든 변수가 같은 변수인 것을 알 수 있습니다.
+
+----
+140705479824168
+140705479824168
+140705479824168
+----
+
+아래 코드를 보면, Python의 값 전달은 C 언어에서와 같이 pass-by-value인 것 처럼 여겨집니다.
+
+[source, python]
+----
+def func(arg):
+    arg = 2
+
+a = 1
+func(a)
+print(a)
+----
+
+위 코드는 1을 출력합니다.
+
+Java나 C# 같은 언어에서 객체의 생성은 new 연산자로 이루어집니다. Java나 C#에서 new 연산자는 메모리에 객체가 존재할 공간을 할당받습니다. Python에는 new 연산자가 존재하지 않고, 또한 모든 것은 객체이기 때문에 변수가 값을 할당하는 연산은 Java에서 new 연산자를 호출하는 것과 같습니다. 아래와 코드와 같이 다른 변수에 변수를 할당하는 경우에는 같은 곳을 참조하지만, 
+
+[source, python]
+----
+var1 = 1
+var2 = var1
+
+print(id(var1))
+print(id(var2))
+----
+
+----
+140705479824168
+140705479824168
+----
+
+변수에 값을 할당하면 메모리에 새 공간이 할당되고 할당된 새 공간에 데이터가 저장되므로, 다른 객체가 됩니다.
+
+[source, python]
+----
+var1 = 1
+var2 = var1
+print("var1:", id(var1))
+print("var2:", id(var2))
+
+var2 = 2
+print("var1:", id(var1))
+print("var2:", id(var2))
+----
+
+== 가변형(Imutable) 객체가 전달될 때
+
+사실, Python에서 파라미터가 전달될 때 불변형(Immutable) 객체이든 가변형(Mutable) 객체이든 똑같이 동작합니다. int, float와 같은 스칼라(단일 값을 가지는) 객체인 경우에는 완벽히 동일합니다. 내부적으로 여러 값을 가지는 객체(Sequence나 dictionary등)인 경우 역시 동일하게 동작하지만 이 경우 내부 값을 사용할 때 동작이 다릅니다.
+
+아래와 같이 전달받은 argument의 첫 번째 요소를 1로 변경하는 함수가 있을 때, 
+
+[source, python]
+----
+def change_element_value(args):
+    args[0] = 1
+----
+
+argument로 전달된 변수는 동일한 변수이지만 내부의 요소 값은 변경됩니다. 
+
+[source, python]
+----
+var = [10, 20]
+print(id(var))
+change_element_value(var)
+print(id(var))
+print(var)
+----
+
+----
+1636308778880
+1636308778880
+[1, 20]
+----
+
+== 불변형(Mutable) 객체가 전달될 때
+
+tuple과 같은 불변형 객체는 내부의 값을 변경할 수가 없습니다. 위 코드에서 change_element_value() 함수에 tuple 객제가 전달되면 오류가 발생합니다.
+
+----
+1208306034688
+Traceback (most recent call last):
+  File "D:\Code\Test.py", line 6, in <module>
+    change_element_value(var)
+  File "D:\Code\Test.py", line 2, in change_element_value
+    args[0] = 1
+    ~~~~^^^
+TypeError: 'tuple' object does not support item assignment
+----
+
+////
+https://blog.potados.com/dev/python-is-pass-by-value/
+////

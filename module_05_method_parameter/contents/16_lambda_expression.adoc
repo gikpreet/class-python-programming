@@ -1,0 +1,15 @@
+= Lambda expression
+
+* 파라미터를 받아 짧은 코드 블록을 수행하고 필요에 따라 값을 return하는 표현 방법
+* 함수와 유사하지만 이름을 갖지 않으며 expression을 사용할 수 있는 모든 곳에서 구현 가능
+
+[source, python]
+----
+x = lambda x, y : x + y
+
+print(x(1, 2))
+----
+
+---
+
+lambda expression은 파라미터를 받아 짧은 코드 블록을 수행하고 필요에 따라 값을 return하는 표현 방법입니다. 함수와 유사하지만 이름을 갖지 않으며, expression을 사용할 수 있는 모든 곳에서 구현 가능합니다.
