@@ -89,6 +89,10 @@ print(func(1, 2))
 3
 ----
 
+== first-class function
+
+함수가 first-class citizen 속성을 가지만 first-class function이라고 합니다. 변수에 함수를 할당할 수 있고, argument로 함수를 전달하거나 return 값으로 함수를 사용할 수 있습니다. 이 기능을 사용하여 closer나 decorator등을 만들 수 있습니다.
+
 Python의 함수는 first-class function이므로, 함수의 파라미터로 사용될 수 있습니다. 
 
 [source, python]
