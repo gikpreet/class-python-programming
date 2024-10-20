@@ -1,0 +1,38 @@
+== 단순한 클래스 정의
+
+* 데이터와 메소드 모두 클래스 내에 위치
+
+[source, python]
+----
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+    
+    def withdraw(self, amount):
+        self.balance -= amount
+----
+
+---
+
+Python 에서 클래스는 아래와 같은 방법으로 정의될 수 있습니다:
+
+* class 키워드를 사용합니다.
+* 데이터를 명확히 클래스 내부에 정의합니다.
+* 메소드 역시 클래스 내부에 정의합니다.
+* 접근 제한자를 사용할 수 없습니다.
+
+[source, python]
+----
+account1 = BankAccount(100)
+print(account1.balance)
+account1.deposit(100)
+print(account1.balance)
+----
+
+----
+100
+200
+----

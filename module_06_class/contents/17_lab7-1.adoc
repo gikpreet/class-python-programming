@@ -1,0 +1,176 @@
+= Lab 7-1 클래스를 만들고 사용
+
+== 연습 1: 클래스의 생성과 사용
+
+이 연습에서는 은행 계좌 클래스를 생성합니다. 데이터 멤버를 선언하고, 데이터에 액세스하는 메소드를 선언합니다. 계정 객체를 생성하고, 사용자가 지정한 계정 번호와 잔고를 채우는 여러 메소드를 만들고 데이터를 출력합니다.
+
+=== BankAccount 클래스 정의
+
+1. Visual Studio Code를 실행합니다.
+2. 파일 메뉴에서 폴더 열기를 클릭하고 c:\Labs\Lab7-1\CreateAccount\Starter 폴더를 엽니다.
+3. 작성자 신뢰 경고 창에서, 예, 작성자를 신뢰합니다 버튼을 클릭합니다.
+4. Visual Studio Code 탐색기에서 Bank.py 파일을 엽니다.
+5. 코드를 확인합니다. BankAccount 클래스와 CreateAccount 두 클래스가 있습니다.
++
+[source, python]
+----
+from decimal import Decimal
+
+class CreateAccount:
+    def create_new_account():
+        return BankAccount()
+    
+    def print_account(bank_account):
+        pass
+
+class BankAccount:
+    pass
+    # To-do write set data here
+----
++
+6. Test.py 파일을 열고 코드를 확인합니다.
++
+[source, python]
+----
+from Bank import BankAccount
+from Bank import CreateAccount
+
+if __name__ == "__main__":
+    bank_account = CreateAccount.create_new_account()
+    print(bank_account)
+----
++
+7. 터미널에서 아래 명령을 실행하여 프로그램을 실행합니다.
++
+----
+$ python Test.py
+<Bank.BankAccount object at 0x00000231FCA8F550>
+----
+
+=== BankAccount 클래스에 데이터를 지정하는 메소드 작성
+
+1. Bank.py 파일을 엽니다.
+2. BankAccount 클래스에서 pass 문을 삭제하고 set_data 메소드를 작성합니다.
+a. self, account_number, name, balance 세 파라미터를 가집니다.
+b. 파라미터를 세 인스턴스 파라미터 _account_number, _name, _balance 변수에 할당합니다.
+c. _balance 변수는 Decimal() 타입으로 할당합니다.
+3. 완성된 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+class BankAccount:
+    def set_data(self, account_number, name, balance):
+        self._account_number = account_number
+        self._name = name
+        self._balance = Decimal(balance)
+----
++
+4. CreateAccount 클래스의 create_new_account 메소드가 account_number, name, balance 세 파라미터를 가지도록 수정합니다.
+5. create_new_account 메소드에서 account 변수에 BankAccount 객체를 할당합니다.
+6. account 변수(객체)의 set_data 메소드를 호출하고 전달받은 argument를 전달합니다.
+7. 생성한 account 변수를 return 합니다.
+8. 완성한 create_new_account 메소드의 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+def create_new_account(account_number, name, balance):
+        account = BankAccount()
+        account.set_data(account_number, name, balance)
+        return account
+----
++
+9. Test.py 파일을 엽니다.
+10. CreateAccount.create_new_account() 메소드 호출에 1, "celine", 100.0을 전달합니다.
+11. 터미널에서 아래 명령을 실행하여 프로그램을 실행합니다.
++
+----
+$ python Test.py
+<Bank.BankAccount object at 0x00000231FCA8F550>
+----
++
+12. Bank.py 파일을 엽니다.
+13. print_account 메소드가 argument로 전달받은 bank_account의 _account_nunber, _name, _balance를 출력하도록 수정합니다. 줄 바꿈을 하지 않도록 작성합니다.
+14. 완성된 print_account 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+def print_account(bank_account):
+    print(bank_account._account_number, end=", ")
+    print(bank_account._name, end=", ")
+    print(bank_account._balance)
+----
++
+15. Test.py 파일을 엽니다.
+16. 마지막 줄의 print 함수를 CreateAccount 클래스의 print_account로 변경합니다.
+17. Test.py 파일의 전체 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+from Bank import BankAccount
+from Bank import CreateAccount
+
+if __name__ == "__main__":
+    bank_account = CreateAccount.create_new_account(1, "celine", 100.0)
+    CreateAccount.print_account(bank_account)
+----
++
+18. 터미널에서 아래 명령을 실행하여 프로그램을 실행합니다.
++
+----
+$ python Test.py
+1, celine, 100
+----
+
+== 연습 2: 계좌 번호 생성
+
+이 연습에서는 이전 연습의 BankAccount 클래스를 수정하여 고유한 계좌번호를 생성합니다. BankAccount 클래스에 정적 변수를 추가하고 변수의 값을 증가시키고 반환하는 메소드를 작성합니다. CreateAccount 클래스에서 새 계정을 생성할 때 메소드를 호출하여 계좌 번호를 생성합니다.
+
+1. Visual Studio Code를 실행합니다.
+2. 파일 메뉴에서 폴더 열기를 클릭하고 c:\Labs\Lab07-1\AccountNumbers\Starter 폴더를 엽니다.
+3. 작성자 신뢰 경고 창에서, 예, 작성자를 신뢰합니다 버튼을 클릭합니다.
+4. Visual Studio Code 탐색기에서 BankAccount.py 파일을 엽니다.
+5. CreateAccount 클래스 선언의 위 라인에, account_number 변수를 0으로 선언합니다.
+6. 파라미터 없는 next_number 함수를 선언하고, account_number 변수를 global로 선언합니다.
+7. next_number 함수에서 global로 선언된 account_number 변수에 1을 더하고 return 합니다.
+8. 완성된 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+account_number = 0
+
+def next_number():
+    global account_number
+    account_number += 1
+    return account_number
+----
++
+9. CreateAccount 클래스의 create_new_account 메소드에서 첫 번째 파라미터 account_number를 삭제합니다.
+10. create_new_account 메소드의 BankAccount 클래스의 set_data 인스턴스 메소드를 호출하는 코드에서 첫 번째 파라미터를 next_number() 함수 호출로 변경합니다.
+11. 변경된 코드는 아래와 유사할 것입니다.
++
+[source, python]
+----
+def create_new_account(name, balance):
+    account = BankAccount()
+    account.set_data(next_number(), name, balance)
+    return account
+----
++
+12. Test.py 파일을 열고 코드를 확인합니다.
++
+[source, python]
+----
+if __name__ == "__main__":
+    bank_account1 = CreateAccount.create_new_account("celine", 100.0)
+    bank_account2 = CreateAccount.create_new_account("james", 200.0)
+    CreateAccount.print_account(bank_account1)
+    CreateAccount.print_account(bank_account2)
+----
++
+13. 터미널에서 아래 명령을 실행하여 프로그램을 실행합니다.
++
+----
+$ python Test.py
+1, celine, 100
+2, james, 200
+----
