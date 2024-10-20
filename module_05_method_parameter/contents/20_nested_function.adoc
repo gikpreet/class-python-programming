@@ -1,0 +1,52 @@
+= Nested function
+
+* 함수 안에 선언된 함수
+* 내부 함수(Inner function)으로도 부름
+* 외부 함수의 메모리에 접근 가능
+
+[source, python]
+----
+def calculator(x, y):
+    def add():
+        return x + y
+    
+    def subtract():
+        return x - y
+    
+    return (add(), subtract())
+----
+
+---
+
+Nested function은 중첩 함수라고도 부르며, 함수안에 정의된 함수(함수로 감싸진 함수)를 말합니다. Nested function은 개념적인 용어로 내부 함수(Inner function)이라고 부르기도 합니다. 내부 함수를 감싸고 있는 함수를 외부 함수(Outer function)이라고 부릅니다.
+
+함수는 여러개의 함수를 포함할 수 있습니다. 이때 각각의 내부 함수들은 Variable scope chain 규칙에 따라 외부 함수에 선언된 변수에 접근이 가능합니다.
+
+내부 함수를 사용하면 외부 함수의 자원들을 사용할 수 있습니다. 내부 함수 끼리는 같은 변수를 사용하고 관련된 기능들을 하는 함수들을 하나의 외부 함수에 묶어서 사용할 수 있습니다. 단, 내부 함수는 외부 함수의 외부에서 접근할 수 없습니다.
+
+아래 코드는 외부 함수로 calculator()를 선언하고, calculator() 함수의 내부 함수로 add(), subtract() 함수를 선언했습니다.
+
+[source, python]
+----
+def calculator(x, y):
+    def add():
+        return x + y
+    
+    def subtract():
+        return x - y
+    
+    return (add(), subtract())
+----
+
+내부 함수인 add()와 subtract()에서는 외부 함수의 파라미터인 x와 y에 접근할 수 있습니다.
+
+[source, python]
+----
+print(calculator(2, 2))
+----
+
+----
+(4, 0)
+----
+
+내부 함수를 사용하면 외부 함수의 argument를 사용할 수 있게 되어 반복되는 동작이나 같은 파라미터를 사용해야 하는 코드에 사용합니다. 
