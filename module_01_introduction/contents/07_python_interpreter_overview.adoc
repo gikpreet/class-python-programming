@@ -55,9 +55,11 @@ Python 코드의 실행 과정은 아래와 같습니다.
 link:./06_python_interpreter.adoc[이전: Python 인터프리터] +
 link:./08_python_virtual_machine.adoc[다음: Python Virtual Machine]
 
+////
 https://linejin.tistory.com/2
 
 https://caiocozza-art.medium.com/a-quick-overview-of-the-python-virtual-machine-pt-1-315e74c036f4
 
 https://letsmakemyselfprogrammer.tistory.com/88
 
+ ////
