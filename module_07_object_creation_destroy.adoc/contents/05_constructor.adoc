@@ -1,0 +1,14 @@
+= 생성자
+
+* 많은 경우 기본 생성자는 객체 생성에 적당하지 않음
+* 기본 생성자 대신 객체만의 기본 생성자를 정의
+
+[source, python]
+----
+class Date:
+    def __init__(self, name):
+        self.name = name
+----
+
+---
+

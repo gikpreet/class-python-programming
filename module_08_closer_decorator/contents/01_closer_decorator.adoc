@@ -1,0 +1,4 @@
+= 클로저(Close)와 데코레이터(Decorator)
+
+== Table of Contents
+
