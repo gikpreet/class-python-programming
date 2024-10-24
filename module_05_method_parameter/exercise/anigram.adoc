@@ -1,0 +1,12 @@
+= Anigram
+
+일종의 말장난으로 어떠한 단어의 문자를 재배열하여 다른 뜻을 가지는 다른 단어로 바꾸는 것으로, 어구전철이라 부르기도 합니다.. 고대 유대인들이 히브리어로 하곤 했고, 중세 유럽에도 큰 인기를 끌었습. 중세의 대표적인 어구전철은 라틴어로 된 아베 마리아의 애너그램입니다.
+
+"Ave Maria, gratia plena, Dominus tecum"
+(은총이 가득하신 마리아님 기뻐하소서, 주님께서 함께 계십니다)
+"Virgo serena, pia, munda et immaculata"
+(거룩하고 신성하며 순수하고 순결한 동정녀)
+
+I am Lord Voldemort = Tom Marvolo Riddle
+
+Anagram을 판별하는 함수를 Python으로 작성하세요.
