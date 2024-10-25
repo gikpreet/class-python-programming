@@ -3,21 +3,21 @@
 [cols="1,2,2", options="header"]
 |===
 |연산자/함수|메소드|설명
-|+|__add__(self, other)|덧셈
-|*|__mul__(self, other)|곱셈
-|-|__sub__(self, other)|뺄셈
-|/|_truediv__(self, other)|나눗셈
-|%|__mod__(self, other)|나머지
-|<|__lt__(self, other)|작다(미만)
-|<=|__le__(self, other)|작거나 같다(이하)
-|==|__eq__(self, other)|같다
-|!=|__ne__(self, other)|같지 않다
-|>|__gt__(self, other)|크다(초과)
-|>=|__ge__(self, other)|크거나 같다(이상)
-|[index]|__getitem__(self, index)|인덱스 연산자
-|in|__containes__(self, value)|멤버 확인
-|len|__contains__(self)|요소 길이
-|str|__str__(self)|문자열 표현
+|+|\\__add__(self, other)|덧셈
+|*|\\__mul__(self, other)|곱셈
+|-|\\__sub__(self, other)|뺄셈
+|/|\\__truediv__(self, other)|나눗셈
+|%|\\__mod__(self, other)|나머지
+|<|\\__lt__(self, other)|작다(미만)
+|<=|\\__le__(self, other)|작거나 같다(이하)
+|==|\\__eq__(self, other)|같다
+|!=|\\__ne__(self, other)|같지 않다
+|>|\\__gt__(self, other)|크다(초과)
+|>=|\\__ge__(self, other)|크거나 같다(이상)
+|[index]|\\__getitem__(self, index)|인덱스 연산자
+|in|\\__containes__(self, value)|멤버 확인
+|len|\\__contains__(self)|요소 길이
+|str|\\__str__(self)|문자열 표현
 |===
 
 ---
