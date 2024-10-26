@@ -1,4 +1,4 @@
-== default parameter
+= default parameter
 
 * 파라미터가 기본값을 가질 수 있음
 * 기본 값을 가진 파라미터에는 값을 전달하지 않을 경우 기본값이 사용됨
